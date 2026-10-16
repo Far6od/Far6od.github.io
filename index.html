@@ -5,617 +5,371 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Farbod Hashemi — Web &amp; WordPress Developer</title>
 <meta name="description" content="Farbod Hashemi (Far6od) — Web Developer and WordPress Developer based in Iran. Building modern digital experiences with HTML and WordPress." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0b0d'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23d7b27c'%3EF6%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" />
 
 <style>
-  /* ============ DESIGN TOKENS ============ */
-  :root{
-    --bg: #0a0b0d;
-    --bg-elevated: #101217;
-    --bg-deep: #06070a;
-    --ink: #f4f2ee;
-    --ink-soft: rgba(244,242,238,0.66);
-    --ink-faint: rgba(244,242,238,0.38);
-    --line: rgba(244,242,238,0.10);
-    --line-strong: rgba(244,242,238,0.18);
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --bg: #0a0b0d;
+  --bg-elevated: #101217;
+  --bg-deep: #06070a;
+  --ink: #f4f2ee;
+  --ink-soft: rgba(244,242,238,0.66);
+  --ink-faint: rgba(244,242,238,0.38);
+  --line: rgba(244,242,238,0.10);
+  --line-strong: rgba(244,242,238,0.18);
 
-    --glass-fill: rgba(255,255,255,0.045);
-    --glass-fill-hover: rgba(255,255,255,0.075);
-    --glass-border: rgba(255,255,255,0.14);
-    --glass-highlight: rgba(255,255,255,0.35);
+  --glass-fill: rgba(255,255,255,0.045);
+  --glass-fill-hover: rgba(255,255,255,0.075);
+  --glass-border: rgba(255,255,255,0.14);
+  --glass-highlight: rgba(255,255,255,0.35);
 
-    --accent: #d7b27c;
-    --accent-dim: #b8925f;
-    --accent-soft: rgba(215,178,124,0.14);
-    --accent-glow: rgba(215,178,124,0.45);
+  --accent: #d7b27c;
+  --accent-dim: #b8925f;
+  --accent-soft: rgba(215,178,124,0.14);
+  --accent-glow: rgba(215,178,124,0.45);
 
-    --f-display: 'Clash Display', 'General Sans', system-ui, sans-serif;
-    --f-body: 'General Sans', system-ui, -apple-system, sans-serif;
+  --f-display: 'Clash Display', 'General Sans', system-ui, sans-serif;
+  --f-body: 'General Sans', system-ui, -apple-system, sans-serif;
+  --f-mono: 'IBM Plex Mono', 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
 
-    --ease: cubic-bezier(.22,.61,.36,1);
-    --ease-slow: cubic-bezier(.16,.84,.44,1);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --ease-slow: cubic-bezier(.16,.84,.44,1);
 
-    --radius-lg: 28px;
-    --radius-md: 18px;
-    --radius-sm: 12px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
 
-    --nav-h: 76px;
-  }
+  --nav-h: 76px;
+}
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-  }
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
 
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--f-body);
-    font-size: 16px;
-    line-height: 1.5;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  h1,h2,h3,h4{
-    font-family: var(--f-display);
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  p{ margin: 0; }
-  a{ color: inherit; text-decoration: none; }
-  button{ font-family: inherit; border:none; background:none; color:inherit; cursor:pointer; }
-  ul{ margin:0; padding:0; list-style:none; }
-  img, svg{ display:block; max-width:100%; }
+h1,h2,h3,h4{ font-family: var(--f-display); font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+p{ margin: 0; }
+a{ color: inherit; text-decoration: none; }
+button{ font-family: inherit; border:none; background:none; color:inherit; cursor:pointer; }
+ul{ margin:0; padding:0; list-style:none; }
+img, svg{ display:block; max-width:100%; }
+::selection{ background: var(--accent-soft); color: var(--ink); }
 
-  ::selection{ background: var(--accent-soft); color: var(--ink); }
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
 
-  .container{
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  @media (max-width: 640px){
-    .container{ padding: 0 20px; }
-  }
+.container{ max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+@media (max-width: 640px){ .container{ padding: 0 20px; } }
 
-  section{ position: relative; padding: 160px 0; }
-  @media (max-width: 900px){ section{ padding: 110px 0; } }
+section{ position: relative; padding: 160px 0; }
+@media (max-width: 900px){ section{ padding: 110px 0; } }
 
-  .eyebrow{
-    font-size: 13px;
-    color: var(--ink-faint);
-    margin-bottom: 18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow .dot{
-    width:6px; height:6px; border-radius:50%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent-glow);
-  }
+.eyebrow{
+  font-size: 13px; color: var(--ink-faint); margin-bottom: 18px;
+  display:flex; align-items:center; gap:10px;
+}
+.eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
 
-  /* ============ BACKGROUND CANVAS ============ */
-  #bg-canvas{
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .bg-veil{
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(80% 60% at 15% 8%, rgba(215,178,124,0.06), transparent 60%),
-      radial-gradient(60% 50% at 90% 90%, rgba(120,140,255,0.045), transparent 60%),
-      var(--bg-deep);
-  }
-  .bg-noise{
-    position: fixed; inset:0; z-index:1; pointer-events:none;
-    opacity: 0.035; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+/* ============ BACKGROUND ============ */
+#bg-canvas{ position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+.bg-veil{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(80% 60% at 15% 8%, rgba(215,178,124,0.06), transparent 60%),
+    radial-gradient(60% 50% at 90% 90%, rgba(120,140,255,0.045), transparent 60%),
+    var(--bg-deep);
+}
+.bg-noise{
+  position: fixed; inset:0; z-index:1; pointer-events:none;
+  opacity: 0.035; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main{ position: relative; z-index: 2; }
 
-  main{ position: relative; z-index: 2; }
+/* ============ CUSTOM CURSOR ============ */
+.cursor-dot, .cursor-ring{
+  position: fixed; top:0; left:0; pointer-events: none; z-index: 9999;
+  border-radius: 50%; transform: translate(-50%,-50%); will-change: transform;
+}
+.cursor-dot{ width: 6px; height:6px; background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
+.cursor-ring{
+  width: 34px; height:34px; border: 1px solid var(--glass-border);
+  transition: width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+}
+.cursor-ring.hover{ width: 58px; height:58px; background: var(--accent-soft); border-color: var(--accent-glow); }
+@media (pointer: coarse){ .cursor-dot, .cursor-ring{ display:none; } }
+.no-custom-cursor .cursor-dot, .no-custom-cursor .cursor-ring{ display:none; }
 
-  /* ============ CUSTOM CURSOR ============ */
-  .cursor-dot, .cursor-ring{
-    position: fixed;
-    top:0; left:0;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    transform: translate(-50%,-50%);
-    will-change: transform;
-  }
-  .cursor-dot{
-    width: 6px; height:6px;
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
-  }
-  .cursor-ring{
-    width: 34px; height:34px;
-    border: 1px solid var(--glass-border);
-    transition: width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
-  }
-  .cursor-ring.hover{
-    width: 58px; height:58px;
-    background: var(--accent-soft);
-    border-color: var(--accent-glow);
-  }
-  @media (pointer: coarse){
-    .cursor-dot, .cursor-ring{ display:none; }
-  }
-  .no-custom-cursor .cursor-dot, .no-custom-cursor .cursor-ring{ display:none; }
+/* ============ LOADER ============ */
+#loader{
+  position: fixed; inset:0; z-index: 10000; background: var(--bg-deep);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 34px;
+  transition: opacity .8s var(--ease-slow), visibility .8s var(--ease-slow);
+}
+#loader.hidden{ opacity:0; visibility:hidden; }
+.loader-object{ width: 86px; height:86px; perspective: 700px; }
+.loader-cube{ width:100%; height:100%; position:relative; transform-style: preserve-3d; animation: loaderSpin 5.5s linear infinite; }
+@media (prefers-reduced-motion: reduce){ .loader-cube{ animation-duration: 12s; } }
+.loader-cube .face{
+  position:absolute; inset:0; border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, rgba(215,178,124,0.16), rgba(255,255,255,0.03));
+  backdrop-filter: blur(2px); box-shadow: inset 0 0 24px rgba(215,178,124,0.15);
+}
+.loader-cube .f1{ transform: translateZ(43px); }
+.loader-cube .f2{ transform: rotateY(180deg) translateZ(43px); }
+.loader-cube .f3{ transform: rotateY(90deg) translateZ(43px); }
+.loader-cube .f4{ transform: rotateY(-90deg) translateZ(43px); }
+.loader-cube .f5{ transform: rotateX(90deg) translateZ(43px); }
+.loader-cube .f6{ transform: rotateX(-90deg) translateZ(43px); }
+@keyframes loaderSpin{ 0%{ transform: rotateX(0deg) rotateY(0deg); } 100%{ transform: rotateX(360deg) rotateY(360deg); } }
+.loader-word{ font-family: var(--f-display); font-size: 15px; letter-spacing: 0.32em; color: var(--ink-soft); }
+.loader-word span{ color: var(--accent); }
 
-  /* ============ LOADER ============ */
-  #loader{
-    position: fixed; inset:0; z-index: 10000;
-    background: var(--bg-deep);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap: 34px;
-    transition: opacity .8s var(--ease-slow), visibility .8s var(--ease-slow);
-  }
-  #loader.hidden{ opacity:0; visibility:hidden; }
+/* ============ NAV ============ */
+header{ position: fixed; top: 20px; left:0; right:0; z-index: 500; display:flex; justify-content:center; padding: 0 20px; }
+.nav-glass{
+  display:flex; align-items:center; gap: 6px; padding: 8px 8px 8px 20px; border-radius: 999px;
+  background: rgba(20,21,24,0.55); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 40px -20px rgba(0,0,0,0.6);
+}
+.nav-mark{ font-family: var(--f-display); font-size: 15px; font-weight: 600; margin-right: 14px; display:flex; align-items:center; gap:8px; color: var(--ink); }
+.nav-chip{
+  position: relative; width:26px; height:26px; border-radius: 8px; overflow: hidden;
+  background: linear-gradient(145deg, var(--accent), var(--accent-dim));
+}
+.nav-chip-fallback{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size: 11px; font-weight:700; color: #14110a;
+}
+.nav-chip-glass{ position:absolute; inset:0; }
+.nav-chip.glass-active .nav-chip-fallback{ opacity: 0; }
+.nav-links{ display:flex; align-items:center; gap: 2px; }
+.nav-links a{ position:relative; padding: 9px 16px; font-size: 13.5px; color: var(--ink-soft); border-radius: 999px; transition: color .3s var(--ease); }
+.nav-links a:hover{ color: var(--ink); }
+.nav-links a.active{ color: var(--ink); }
+.nav-links a.active::after{ content:''; position:absolute; left:16px; right:16px; bottom:5px; height:1px; background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
+.nav-cta{
+  margin-left: 6px; padding: 10px 18px; border-radius: 999px; font-size: 13px;
+  background: var(--glass-fill); border: 1px solid var(--glass-border); color: var(--ink);
+  transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.nav-cta:hover{ background: var(--glass-fill-hover); border-color: var(--glass-highlight); transform: translateY(-1px); }
+.nav-toggle{ display:none; }
+@media (max-width: 760px){
+  .nav-links{ display:none; }
+  .nav-toggle{ display:flex; align-items:center; justify-content:center; width: 40px; height:40px; border-radius:50%; color: var(--ink); }
+  .nav-cta{ display:none; }
+}
+.mobile-menu{
+  position: fixed; inset:0; z-index: 480; background: rgba(8,9,11,0.92); backdrop-filter: blur(14px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 28px;
+  opacity:0; pointer-events:none; transition: opacity .35s var(--ease);
+}
+.mobile-menu.open{ opacity:1; pointer-events:all; }
+.mobile-menu a{ font-family: var(--f-display); font-size: 26px; color: var(--ink); }
+.mobile-menu .close-btn{ position:absolute; top:26px; right:26px; width:44px; height:44px; }
 
-  .loader-object{
-    width: 86px; height:86px;
-    perspective: 700px;
-  }
-  .loader-cube{
-    width:100%; height:100%;
-    position:relative;
-    transform-style: preserve-3d;
-    animation: loaderSpin 5.5s linear infinite;
-  }
-  @media (prefers-reduced-motion: reduce){ .loader-cube{ animation-duration: 12s; } }
-  .loader-cube .face{
-    position:absolute; inset:0;
-    border: 1px solid var(--glass-border);
-    background: linear-gradient(135deg, rgba(215,178,124,0.16), rgba(255,255,255,0.03));
-    backdrop-filter: blur(2px);
-    box-shadow: inset 0 0 24px rgba(215,178,124,0.15);
-  }
-  .loader-cube .f1{ transform: translateZ(43px); }
-  .loader-cube .f2{ transform: rotateY(180deg) translateZ(43px); }
-  .loader-cube .f3{ transform: rotateY(90deg) translateZ(43px); }
-  .loader-cube .f4{ transform: rotateY(-90deg) translateZ(43px); }
-  .loader-cube .f5{ transform: rotateX(90deg) translateZ(43px); }
-  .loader-cube .f6{ transform: rotateX(-90deg) translateZ(43px); }
-  @keyframes loaderSpin{
-    0%{ transform: rotateX(0deg) rotateY(0deg); }
-    100%{ transform: rotateX(360deg) rotateY(360deg); }
-  }
-  .loader-word{
-    font-family: var(--f-display);
-    font-size: 15px;
-    letter-spacing: 0.32em;
-    color: var(--ink-soft);
-  }
-  .loader-word span{ color: var(--accent); }
+/* ============ REVEAL ============ */
+.reveal{ opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease-slow), transform .9s var(--ease-slow); }
+.reveal.in-view{ opacity:1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
 
-  /* ============ NAV ============ */
-  header{
-    position: fixed;
-    top: 20px; left:0; right:0;
-    z-index: 500;
-    display:flex; justify-content:center;
-    padding: 0 20px;
-  }
-  .nav-glass{
-    display:flex; align-items:center; gap: 6px;
-    padding: 8px 8px 8px 20px;
-    border-radius: 999px;
-    background: rgba(20,21,24,0.55);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 40px -20px rgba(0,0,0,0.6);
-  }
-  .nav-mark{
-    font-family: var(--f-display);
-    font-size: 15px;
-    font-weight: 600;
-    margin-right: 14px;
-    display:flex; align-items:center; gap:8px;
-    color: var(--ink);
-  }
-  .nav-mark .chip{
-    width:26px; height:26px;
-    border-radius: 8px;
-    background: linear-gradient(145deg, var(--accent), var(--accent-dim));
-    display:flex; align-items:center; justify-content:center;
-    font-size: 12px; font-weight:700; color: #14110a;
-  }
-  .nav-links{
-    display:flex; align-items:center; gap: 2px;
-  }
-  .nav-links a{
-    position:relative;
-    padding: 9px 16px;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    border-radius: 999px;
-    transition: color .3s var(--ease);
-  }
-  .nav-links a:hover{ color: var(--ink); }
-  .nav-links a.active{ color: var(--ink); }
-  .nav-links a.active::after{
-    content:'';
-    position:absolute; left:16px; right:16px; bottom:5px;
-    height:1px;
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
-  }
-  .nav-cta{
-    margin-left: 6px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-size: 13px;
-    background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    color: var(--ink);
-    transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
-  }
-  .nav-cta:hover{ background: var(--glass-fill-hover); border-color: var(--glass-highlight); transform: translateY(-1px); }
+/* ============ GLASS PANEL BASE ============ */
+.glass{
+  background: var(--glass-fill); border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+  backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+  position: relative; overflow: hidden;
+}
+.glass::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:1px;
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent); opacity: 0.5;
+}
+.glass-sheen{
+  position:absolute; inset:0; background: radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.08), transparent 60%);
+  opacity:0; transition: opacity .4s var(--ease); pointer-events:none;
+}
+.glass:hover .glass-sheen{ opacity:1; }
 
-  .nav-toggle{ display:none; }
-  @media (max-width: 760px){
-    .nav-links{ display:none; }
-    .nav-toggle{
-      display:flex; align-items:center; justify-content:center;
-      width: 40px; height:40px; border-radius:50%;
-      color: var(--ink);
-    }
-    .nav-cta{ display:none; }
-  }
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px; padding: 15px 30px; border-radius: 999px;
+  font-size: 14.5px; font-weight: 500;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+}
+.btn-primary{
+  background: linear-gradient(160deg, #ecd6ac, var(--accent) 55%, var(--accent-dim)); color: #1a1408;
+  box-shadow: 0 10px 30px -10px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px -10px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.6); }
+.btn-ghost{ background: var(--glass-fill); border: 1px solid var(--glass-border); color: var(--ink); }
+.btn-ghost:hover{ background: var(--glass-fill-hover); border-color: var(--glass-highlight); transform: translateY(-2px); }
+.btn-sm{ padding: 10px 18px; font-size: 13px; }
+.btn[disabled]{ opacity: 0.4; cursor: not-allowed; pointer-events:none; }
 
-  .mobile-menu{
-    position: fixed; inset:0; z-index: 480;
-    background: rgba(8,9,11,0.92);
-    backdrop-filter: blur(14px);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap: 28px;
-    opacity:0; pointer-events:none;
-    transition: opacity .35s var(--ease);
-  }
-  .mobile-menu.open{ opacity:1; pointer-events:all; }
-  .mobile-menu a{ font-family: var(--f-display); font-size: 26px; color: var(--ink); }
-  .mobile-menu .close-btn{ position:absolute; top:26px; right:26px; width:44px; height:44px; }
+/* ============ HERO ============ */
+.hero{ min-height: 100svh; display:flex; align-items:center; padding-top: calc(var(--nav-h) + 40px); padding-bottom: 60px; }
+.hero-inner{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items:center; width:100%; }
+@media (max-width: 980px){ .hero-inner{ grid-template-columns: 1fr; } }
+.hero-flag{
+  display:inline-flex; align-items:center; gap:8px; font-size: 13px; color: var(--ink-soft);
+  padding: 8px 16px 8px 8px; border-radius: 999px; background: var(--glass-fill); border: 1px solid var(--glass-border); margin-bottom: 28px;
+}
+.hero-flag .flag-dot{ width: 22px; height:22px; border-radius:50%; background: linear-gradient(180deg, #2fa66a 0 33%, #f4f4f2 33% 66%, #c8393a 66% 100%); }
+.hero h1{ font-size: clamp(48px, 7vw, 92px); line-height: 0.98; color: var(--ink); overflow: hidden; }
+.hero h1 .line{ display:block; overflow:hidden; }
+.hero h1 .line span{ display:inline-block; transform: translateY(110%); transition: transform 1s var(--ease-slow); }
+.hero.loaded h1 .line span{ transform: translateY(0); }
+.hero-role{ margin-top: 22px; font-size: clamp(15px, 1.6vw, 18px); color: var(--accent); font-weight: 500; letter-spacing: 0.01em; }
+.hero-desc{ margin-top: 26px; max-width: 480px; font-size: 17px; color: var(--ink-soft); line-height: 1.65; }
+.hero-actions{ margin-top: 42px; display:flex; gap:16px; flex-wrap:wrap; }
 
-  /* ============ REVEAL ============ */
-  .reveal{
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .9s var(--ease-slow), transform .9s var(--ease-slow);
-  }
-  .reveal.in-view{ opacity:1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-  }
+.hero-scene-wrap{ position:relative; aspect-ratio: 1/1; max-height: 560px; }
+@media (max-width: 980px){ .hero-scene-wrap{ display:none; } }
 
-  /* ============ GLASS PANEL BASE ============ */
-  .glass{
-    background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    position: relative;
-    overflow: hidden;
-  }
-  .glass::before{
-    content:'';
-    position:absolute; top:0; left:0; right:0; height:1px;
-    background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
-    opacity: 0.5;
-  }
-  .glass-sheen{
-    position:absolute; inset:0;
-    background: radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.08), transparent 60%);
-    opacity:0; transition: opacity .4s var(--ease);
-    pointer-events:none;
-  }
-  .glass:hover .glass-sheen{ opacity:1; }
+/* decorative glass fallback shown behind the Saturn canvas / if WebGL fails */
+.hero-scene-fallback{
+  position:absolute; inset: 8%; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(236,214,172,0.35), rgba(215,178,124,0.08) 45%, transparent 70%);
+  filter: blur(2px);
+}
 
-  /* ============ BUTTONS ============ */
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    padding: 15px 30px;
-    border-radius: 999px;
-    font-size: 14.5px; font-weight: 500;
-    transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
-  }
-  .btn-primary{
-    background: linear-gradient(160deg, #ecd6ac, var(--accent) 55%, var(--accent-dim));
-    color: #1a1408;
-    box-shadow: 0 10px 30px -10px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.5);
-  }
-  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px -10px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.6); }
-  .btn-ghost{
-    background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    color: var(--ink);
-  }
-  .btn-ghost:hover{ background: var(--glass-fill-hover); border-color: var(--glass-highlight); transform: translateY(-2px); }
-  .btn-sm{ padding: 10px 18px; font-size: 13px; }
-  .btn[disabled]{ opacity: 0.4; cursor: not-allowed; pointer-events:none; }
+/* decorative code panel — small, legible, non-executing */
+.hero-code-panel{
+  position: absolute;
+  bottom: 6%;
+  left: -4%;
+  width: 230px;
+  padding: 16px 18px;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--ink-faint);
+  pointer-events: none;
+  opacity: 0.85;
+}
+.hero-code-panel .cl{ display:block; white-space: nowrap; overflow:hidden; }
+.hero-code-panel .cl .kw{ color: var(--accent); }
+.hero-code-panel .cl .str{ color: #9fd3b8; }
+.hero-code-panel .caret{
+  display:inline-block; width: 7px; height: 1em; margin-left: 2px;
+  background: var(--accent); vertical-align: -2px;
+  animation: caretBlink 1.1s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce){ .hero-code-panel .caret{ animation: none; opacity: .6; } }
+@keyframes caretBlink{ 50%{ opacity: 0; } }
+@media (max-width: 1180px){ .hero-code-panel{ left: 0; } }
+@media (max-width: 980px){ .hero-code-panel{ display:none; } }
 
-  /* ============ HERO ============ */
-  .hero{
-    min-height: 100svh;
-    display:flex; align-items:center;
-    padding-top: calc(var(--nav-h) + 40px);
-    padding-bottom: 60px;
-  }
-  .hero-inner{
-    display:grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 40px;
-    align-items:center;
-    width:100%;
-  }
-  @media (max-width: 980px){
-    .hero-inner{ grid-template-columns: 1fr; }
-  }
-  .hero-flag{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size: 13px; color: var(--ink-soft);
-    padding: 8px 16px 8px 8px;
-    border-radius: 999px;
-    background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    margin-bottom: 28px;
-  }
-  .hero-flag .flag-dot{
-    width: 22px; height:22px; border-radius:50%;
-    background: linear-gradient(180deg, #2fa66a 0 33%, #f4f4f2 33% 66%, #c8393a 66% 100%);
-  }
-  .hero h1{
-    font-size: clamp(48px, 7vw, 92px);
-    line-height: 0.98;
-    color: var(--ink);
-    overflow: hidden;
-  }
-  .hero h1 .line{ display:block; overflow:hidden; }
-  .hero h1 .line span{
-    display:inline-block;
-    transform: translateY(110%);
-    transition: transform 1s var(--ease-slow);
-  }
-  .hero.loaded h1 .line span{ transform: translateY(0); }
-  .hero-role{
-    margin-top: 22px;
-    font-size: clamp(15px, 1.6vw, 18px);
-    color: var(--accent);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .hero-desc{
-    margin-top: 26px;
-    max-width: 480px;
-    font-size: 17px;
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-  .hero-actions{
-    margin-top: 42px;
-    display:flex; gap:16px; flex-wrap:wrap;
-  }
-  .hero-scene-wrap{
-    position:relative;
-    aspect-ratio: 1/1;
-    max-height: 560px;
-  }
-  @media (max-width: 980px){ .hero-scene-wrap{ display:none; } }
+.scroll-cue{
+  position:absolute; bottom: 34px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:10px; color: var(--ink-faint); font-size: 11px; letter-spacing: 0.16em;
+}
+@media (max-width: 980px){ .scroll-cue{ display:none; } }
+.scroll-cue .line{ width:1px; height:34px; background: linear-gradient(var(--ink-faint), transparent); position: relative; overflow:hidden; }
+.scroll-cue .line::after{ content:''; position:absolute; top:-34px; left:0; width:100%; height:100%; background: var(--accent); animation: cueDrop 2.2s var(--ease) infinite; }
+@media (prefers-reduced-motion: reduce){ .scroll-cue .line::after{ animation: none; top: 0; } }
+@keyframes cueDrop{ to{ top:100%; } }
 
-  .scroll-cue{
-    position:absolute; bottom: 34px; left:50%; transform:translateX(-50%);
-    display:flex; flex-direction:column; align-items:center; gap:10px;
-    color: var(--ink-faint); font-size: 11px; letter-spacing: 0.16em;
-  }
-  @media (max-width: 980px){ .scroll-cue{ display:none; } }
-  .scroll-cue .line{
-    width:1px; height:34px;
-    background: linear-gradient(var(--ink-faint), transparent);
-    position: relative; overflow:hidden;
-  }
-  .scroll-cue .line::after{
-    content:'';
-    position:absolute; top:-34px; left:0; width:100%; height:100%;
-    background: var(--accent);
-    animation: cueDrop 2.2s var(--ease) infinite;
-  }
-  @keyframes cueDrop{ to{ top:100%; } }
+/* ============ SECTION HEADS ============ */
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap: 24px; margin-bottom: 56px; flex-wrap: wrap; }
+.section-head h2{ font-size: clamp(32px, 4vw, 46px); }
+.section-head p{ max-width: 340px; color: var(--ink-soft); font-size: 15px; line-height:1.6; }
 
-  /* ============ SECTION HEADS ============ */
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap: 24px; margin-bottom: 56px;
-    flex-wrap: wrap;
-  }
-  .section-head h2{
-    font-size: clamp(32px, 4vw, 46px);
-  }
-  .section-head p{
-    max-width: 340px;
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height:1.6;
-  }
+/* ============ ABOUT ============ */
+.about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 860px){ .about-grid{ grid-template-columns: 1fr; } }
+.about-main{ padding: 46px; }
+.about-main p{ color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.about-main p + p{ margin-top: 18px; }
+.about-side{ padding: 40px; display:flex; flex-direction:column; gap: 22px; }
+.interest-row{ display:flex; align-items:center; gap: 14px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.interest-row:last-child{ border-bottom:none; padding-bottom:0; }
+.interest-row .idot{ width:8px; height:8px; border-radius:50%; background: var(--accent); box-shadow: 0 0 10px var(--accent-glow); flex-shrink:0; }
+.interest-row span{ font-size: 15px; color: var(--ink); }
 
-  /* ============ ABOUT ============ */
-  .about-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-  @media (max-width: 860px){ .about-grid{ grid-template-columns: 1fr; } }
-  .about-main{ padding: 46px; }
-  .about-main p{ color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
-  .about-main p + p{ margin-top: 18px; }
-  .about-side{ padding: 40px; display:flex; flex-direction:column; gap: 22px; }
-  .interest-row{
-    display:flex; align-items:center; gap: 14px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--line);
-  }
-  .interest-row:last-child{ border-bottom:none; padding-bottom:0; }
-  .interest-row .idot{
-    width:8px; height:8px; border-radius:50%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent-glow);
-    flex-shrink:0;
-  }
-  .interest-row span{ font-size: 15px; color: var(--ink); }
+/* ============ SKILLS ============ */
+.skills-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 780px){ .skills-grid{ grid-template-columns: 1fr; } }
+.skill-card{ padding: 42px; transition: transform .1s linear, border-color .35s var(--ease); will-change: transform; }
+.skill-card:hover{ border-color: var(--glass-highlight); }
+.skill-icon{
+  width: 54px; height: 54px; border-radius: 16px; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(150deg, rgba(215,178,124,0.22), rgba(255,255,255,0.03));
+  border: 1px solid var(--glass-border); margin-bottom: 26px; color: var(--accent);
+}
+.skill-card h3{ font-size: 22px; color: var(--ink); }
+.skill-card p{ margin-top: 12px; color: var(--ink-soft); font-size: 15px; line-height: 1.65; max-width: 420px; }
+.skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 26px; }
+.skill-tags span{ font-size: 12.5px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--line-strong); color: var(--ink-soft); }
 
-  /* ============ SKILLS ============ */
-  .skills-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-  @media (max-width: 780px){ .skills-grid{ grid-template-columns: 1fr; } }
-  .skill-card{
-    padding: 42px;
-    transition: transform .1s linear, border-color .35s var(--ease);
-    will-change: transform;
-  }
-  .skill-card:hover{ border-color: var(--glass-highlight); }
-  .skill-icon{
-    width: 54px; height: 54px;
-    border-radius: 16px;
-    display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(150deg, rgba(215,178,124,0.22), rgba(255,255,255,0.03));
-    border: 1px solid var(--glass-border);
-    margin-bottom: 26px;
-    color: var(--accent);
-  }
-  .skill-card h3{ font-size: 22px; color: var(--ink); }
-  .skill-card p{
-    margin-top: 12px;
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.65;
-    max-width: 420px;
-  }
-  .skill-tags{
-    display:flex; flex-wrap:wrap; gap:10px;
-    margin-top: 26px;
-  }
-  .skill-tags span{
-    font-size: 12.5px;
-    padding: 7px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--line-strong);
-    color: var(--ink-soft);
-  }
+/* ============ WORK ============ */
+.work-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 780px){ .work-grid{ grid-template-columns: 1fr; } }
+.work-card{
+  padding: 34px; display:flex; flex-direction:column; min-height: 260px; border-style: dashed;
+  transition: transform .1s linear, border-color .35s var(--ease), background .35s var(--ease);
+}
+.work-card:hover{ border-color: var(--glass-highlight); background: var(--glass-fill-hover); }
+.work-card .work-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.work-badge{ font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-faint); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-strong); }
+.work-card h3{ margin-top: 24px; font-size: 21px; color: var(--ink-soft); }
+.work-card .work-desc{ margin-top: 10px; font-size: 14.5px; color: var(--ink-faint); line-height: 1.6; flex-grow: 1; }
+.work-card .work-tech{ margin-top: 20px; font-size: 12.5px; color: var(--ink-faint); }
+.work-card .work-actions{ margin-top: 20px; display:flex; gap: 10px; }
 
-  /* ============ WORK ============ */
-  .work-grid{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 780px){ .work-grid{ grid-template-columns: 1fr; } }
-  .work-card{
-    padding: 34px;
-    display:flex; flex-direction:column;
-    min-height: 260px;
-    border-style: dashed;
-    transition: transform .1s linear, border-color .35s var(--ease), background .35s var(--ease);
-  }
-  .work-card:hover{ border-color: var(--glass-highlight); background: var(--glass-fill-hover); }
-  .work-card .work-top{
-    display:flex; justify-content:space-between; align-items:flex-start;
-  }
-  .work-badge{
-    font-size: 11.5px;
-    letter-spacing: 0.04em;
-    color: var(--ink-faint);
-    padding: 6px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--line-strong);
-  }
-  .work-card h3{
-    margin-top: 24px;
-    font-size: 21px;
-    color: var(--ink-soft);
-  }
-  .work-card .work-desc{
-    margin-top: 10px;
-    font-size: 14.5px;
-    color: var(--ink-faint);
-    line-height: 1.6;
-    flex-grow: 1;
-  }
-  .work-card .work-tech{
-    margin-top: 20px;
-    font-size: 12.5px;
-    color: var(--ink-faint);
-  }
-  .work-card .work-actions{
-    margin-top: 20px;
-    display:flex; gap: 10px;
-  }
+/* ============ GITHUB ============ */
+.github-panel{ padding: 50px; display:flex; align-items:center; justify-content:space-between; gap: 30px; flex-wrap:wrap; }
+.github-left{ display:flex; align-items:center; gap: 22px; }
+.github-icon{
+  width: 62px; height:62px; border-radius: 18px; background: var(--glass-fill); border: 1px solid var(--glass-border);
+  display:flex; align-items:center; justify-content:center; color: var(--ink);
+}
+.github-left h3{ font-size: 22px; }
+.github-left p{ margin-top: 6px; color: var(--ink-soft); font-size: 14.5px; }
 
-  /* ============ GITHUB ============ */
-  .github-panel{
-    padding: 50px;
-    display:flex; align-items:center; justify-content:space-between;
-    gap: 30px; flex-wrap:wrap;
-  }
-  .github-left{ display:flex; align-items:center; gap: 22px; }
-  .github-icon{
-    width: 62px; height:62px; border-radius: 18px;
-    background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    display:flex; align-items:center; justify-content:center;
-    color: var(--ink);
-  }
-  .github-left h3{ font-size: 22px; }
-  .github-left p{ margin-top: 6px; color: var(--ink-soft); font-size: 14.5px; }
+/* ============ CONTACT ============ */
+.contact-panel{ padding: 70px 50px; text-align:center; display:flex; flex-direction:column; align-items:center; }
+.contact-panel h2{ font-size: clamp(30px, 4.6vw, 48px); max-width: 620px; }
+.contact-panel p{ margin-top: 18px; color: var(--ink-soft); font-size: 16px; max-width: 440px; }
+.contact-panel .btn{ margin-top: 36px; }
 
-  /* ============ CONTACT ============ */
-  .contact-panel{
-    padding: 70px 50px;
-    text-align:center;
-    display:flex; flex-direction:column; align-items:center;
-  }
-  .contact-panel h2{ font-size: clamp(30px, 4.6vw, 48px); max-width: 620px; }
-  .contact-panel p{
-    margin-top: 18px;
-    color: var(--ink-soft);
-    font-size: 16px;
-    max-width: 440px;
-  }
-  .contact-panel .btn{ margin-top: 36px; }
+/* ============ FOOTER ============ */
+footer{ padding: 44px 0 50px; border-top: 1px solid var(--line); }
+.footer-inner{ display:flex; justify-content:space-between; align-items:center; gap: 20px; flex-wrap:wrap; font-size: 13.5px; color: var(--ink-faint); }
+.footer-links{ display:flex; gap: 22px; }
+.footer-links a:hover{ color: var(--ink); }
 
-  /* ============ FOOTER ============ */
-  footer{
-    padding: 44px 0 50px;
-    border-top: 1px solid var(--line);
-  }
-  .footer-inner{
-    display:flex; justify-content:space-between; align-items:center;
-    gap: 20px; flex-wrap:wrap;
-    font-size: 13.5px; color: var(--ink-faint);
-  }
-  .footer-links{ display:flex; gap: 22px; }
-  .footer-links a:hover{ color: var(--ink); }
+/* misc */
+.icon{ width:22px; height:22px; }
+.noscroll{ overflow:hidden; }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
 
-  /* misc */
-  .icon{ width:22px; height:22px; }
-  .noscroll{ overflow:hidden; }
 </style>
 </head>
 <body>
@@ -643,7 +397,13 @@
 
 <header>
   <nav class="nav-glass">
-    <a href="#home" class="nav-mark"><span class="chip">F6</span>Farbod</a>
+    <a href="#home" class="nav-mark">
+      <span class="nav-chip">
+        <span class="nav-chip-fallback" aria-hidden="true">F6</span>
+        <span class="nav-chip-glass"></span>
+      </span>
+      Farbod
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="#home" class="active" data-nav>Home</a>
       <a href="#about" data-nav>About</a>
@@ -652,15 +412,15 @@
       <a href="#contact" data-nav>Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Let's Talk</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
   </nav>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-btn" id="menuClose" aria-label="Close menu">
-    <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
   </button>
   <a href="#home" data-nav-mobile>Home</a>
   <a href="#about" data-nav-mobile>About</a>
@@ -669,17 +429,17 @@
   <a href="#contact" data-nav-mobile>Contact</a>
 </div>
 
-<main>
+<main id="main">
 
   <section class="hero" id="home">
     <div class="container hero-inner">
       <div>
         <div class="hero-flag reveal">
-          <span class="flag-dot"></span> Based in Iran
+          <span class="flag-dot" aria-hidden="true"></span> Based in Iran
         </div>
         <h1 id="heroTitle">
-          <span class="line"><span>Farbod</span></span>
-          <span class="line"><span>Hashemi</span></span>
+          <span class="line"><span class="scramble" data-text="Farbod">Farbod</span></span>
+          <span class="line"><span class="scramble" data-text="Hashemi">Hashemi</span></span>
         </h1>
         <p class="hero-role reveal">Web Developer · WordPress Developer · Creative Developer</p>
         <p class="hero-desc reveal">Building modern digital experiences with creativity, technology, and attention to detail.</p>
@@ -688,9 +448,19 @@
           <a href="#contact" class="btn btn-ghost">Contact Me</a>
         </div>
       </div>
-      <div class="hero-scene-wrap"></div>
+
+      <div class="hero-scene-wrap" role="img" aria-label="An animated particle rendering of a ringed planet">
+        <div class="hero-scene-fallback" style="display:none" aria-hidden="true"></div>
+        <div class="hero-code-panel" aria-hidden="true">
+          <span class="cl">&lt;<span class="kw">section</span> id=<span class="str">"work"</span>&gt;</span>
+          <span class="cl">&nbsp;&nbsp;render(<span class="kw">projects</span>)</span>
+          <span class="cl">&lt;/<span class="kw">section</span>&gt;</span>
+          <span class="cl">&nbsp;</span>
+          <span class="cl"><span class="kw">const</span> site = build()<span class="caret"></span></span>
+        </div>
+      </div>
     </div>
-    <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+    <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><span class="line"></span></div>
   </section>
 
   <section id="about">
@@ -728,7 +498,7 @@
         <div class="glass skill-card tilt-card reveal">
           <div class="glass-sheen"></div>
           <div class="skill-icon">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 4L4 12l3 8M17 4l3 8-3 8M14 3l-4 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4L4 12l3 8M17 4l3 8-3 8M14 3l-4 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>HTML</h3>
           <p>Structuring clean, semantic pages that form a solid foundation for every site I build — accessible, well-organized, and ready to be styled or extended.</p>
@@ -739,7 +509,7 @@
         <div class="glass skill-card tilt-card reveal">
           <div class="glass-sheen"></div>
           <div class="skill-icon">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 9.5h15M8 9.5l3 8 1.4-4 1.4 4 3-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 9.5h15M8 9.5l3 8 1.4-4 1.4 4 3-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>WordPress</h3>
           <p>Building and customizing WordPress sites — from themes and layouts to the everyday workflow of getting a site live, organized, and easy to manage.</p>
@@ -757,6 +527,9 @@
         <h2>Work</h2>
         <p>Projects are on the way — this space will be filled with real work soon.</p>
       </div>
+      <!-- Edit this grid to add real projects as they're ready. Each card is
+           a self-contained placeholder; swap the badge, title, description,
+           technology line and links when a project is live. -->
       <div class="work-grid">
         <div class="glass work-card reveal">
           <div class="glass-sheen"></div>
@@ -798,14 +571,14 @@
         <div class="glass-sheen"></div>
         <div class="github-left">
           <div class="github-icon">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.5v-1.94c-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.11-1.52-1.11-1.52-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .28.18.61.69.5A10.2 10.2 0 0 0 22 12.19C22 6.58 17.52 2 12 2z" fill="currentColor"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.5v-1.94c-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.11-1.52-1.11-1.52-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .28.18.61.69.5A10.2 10.2 0 0 0 22 12.19C22 6.58 17.52 2 12 2z" fill="currentColor"/></svg>
           </div>
           <div>
             <h3>@Far6od</h3>
             <p>Repositories, experiments, and ongoing work.</p>
           </div>
         </div>
-        <a href="https://github.com/Far6od" target="_blank" rel="noopener" class="btn btn-ghost">View GitHub Profile</a>
+        <a href="https://github.com/far6od" target="_blank" rel="noopener" class="btn btn-ghost">View GitHub Profile</a>
       </div>
     </div>
   </section>
@@ -817,8 +590,8 @@
         <div class="eyebrow" style="justify-content:center;"><span class="dot"></span>Get in touch</div>
         <h2>Let's build something great.</h2>
         <p>The fastest way to reach me is Telegram — say hello anytime.</p>
-        <a href="https://t.me/Far6od_H" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;"><path d="M21 4.5L3 11.2l5.4 1.9m12.6-8.6l-2.7 15-7-5.1m9.7-9.9L8.4 15.5m0 0l-.3 4.5 3-3.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="https://t.me/Far6odH" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;" aria-hidden="true"><path d="M21 4.5L3 11.2l5.4 1.9m12.6-8.6l-2.7 15-7-5.1m9.7-9.9L8.4 15.5m0 0l-.3 4.5 3-3.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Contact on Telegram
         </a>
       </div>
@@ -831,97 +604,1181 @@
   <div class="container footer-inner">
     <span>© <span id="year"></span> Farbod Hashemi — Designed &amp; built by Far6od.</span>
     <div class="footer-links">
-      <a href="https://t.me/Far6od_H" target="_blank" rel="noopener">Telegram</a>
-      <a href="https://github.com/Far6od" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://t.me/Far6odH" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://github.com/far6od" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </footer>
 
-<script type="module">
-import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
+<script>
+/**
+ * Liquid Glass Cluster — vanilla WebGL port
+ *
+ * Adapted from a supplied React/TSX "Liquid Glass Cluster" (Originkit)
+ * component. The original's actual rendering engine was raw WebGL driven
+ * from a React useEffect; that effect's setup/teardown has been translated
+ * here into explicit class lifecycle methods (constructor/dispose) for a
+ * static HTML/CSS/JS project. All shader source (raymarched glass with
+ * chromatic dispersion, frosted refraction sampling, an analytic signed-
+ * distance-field text/logo baker, and a procedural studio-light env map)
+ * and the pointer tilt/drag interaction are preserved from the original.
+ *
+ * This project uses it sparingly, on a single small UI element (the nav
+ * mark), per the "restrained — selected UI elements only" design brief.
+ * The demo-only base64 placeholder image/logo from the original source
+ * were not ported in, since this project shouldn't ship fabricated demo
+ * assets; the component defaults to backdrop type "None" instead, which
+ * still renders full glass refraction + environment reflections.
+ */
+
+const BEVEL = 0.025;
+const CORE_REFRACT = 1.0;
+const IOR = 1.5;
+const THICKNESS = 2.0;
+const IDLE_FLOAT = 0.05;
+const TILT_RANGE = 0.5;
+const TILT_RATE = 5;
+const DRAG_GAIN = 0.01;
+const SPIN_YAW = 0.5;
+const SPIN_PITCH = 0.2;
+const FOV = (45 * Math.PI) / 180;
+const CAM_DIST = 5;
+const DEG = Math.PI / 180;
+
+function parseColor(input, fallback) {
+  if (!input) return fallback;
+  const s = input.trim();
+  if (s[0] === "#") {
+    let h = s.slice(1);
+    if (h.length === 3 || h.length === 4) h = h.split("").map((c) => c + c).join("");
+    if (h.length >= 6) {
+      const r = parseInt(h.slice(0, 2), 16) / 255;
+      const g = parseInt(h.slice(2, 4), 16) / 255;
+      const b = parseInt(h.slice(4, 6), 16) / 255;
+      if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
+    }
+    return fallback;
+  }
+  const m = s.match(/rgba?\(([^)]+)\)/i);
+  if (m) {
+    const p = m[1].split(",").map((v) => parseFloat(v));
+    if (p.length >= 3) return [p[0] / 255, p[1] / 255, p[2] / 255];
+  }
+  return fallback;
+}
+
+function numOf(v, fallback) {
+  if (typeof v === "number") return Number.isFinite(v) ? v : fallback;
+  if (typeof v === "string") {
+    const n = parseFloat(v);
+    if (Number.isFinite(n)) return n;
+  }
+  return fallback;
+}
+
+function rotYX(yaw, pitch) {
+  const cy = Math.cos(yaw), sy = Math.sin(yaw);
+  const cx = Math.cos(pitch), sx = Math.sin(pitch);
+  const m = new Float32Array(9);
+  m[0] = cy; m[1] = 0; m[2] = -sy;
+  m[3] = sy * sx; m[4] = cx; m[5] = cy * sx;
+  m[6] = sy * cx; m[7] = -sx; m[8] = cy * cx;
+  return m;
+}
+
+function transpose3(m) {
+  const o = new Float32Array(9);
+  o[0] = m[0]; o[1] = m[3]; o[2] = m[6];
+  o[3] = m[1]; o[4] = m[4]; o[5] = m[7];
+  o[6] = m[2]; o[7] = m[5]; o[8] = m[8];
+  return o;
+}
+
+function mul3(a, b) {
+  const o = new Float32Array(9);
+  for (let c = 0; c < 3; c++)
+    for (let r = 0; r < 3; r++)
+      o[c * 3 + r] = a[r] * b[c * 3] + a[3 + r] * b[c * 3 + 1] + a[6 + r] * b[c * 3 + 2];
+  return o;
+}
+
+function rotYXZ(yaw, pitch, roll) {
+  const base = rotYX(yaw, pitch);
+  if (roll === 0) return base;
+  const c = Math.cos(roll), s = Math.sin(roll);
+  const rz = new Float32Array([c, s, 0, -s, c, 0, 0, 0, 1]);
+  return mul3(base, rz);
+}
+
+function buildEnvCanvas() {
+  if (typeof document === "undefined") return null;
+  const canvas = document.createElement("canvas");
+  canvas.width = 1024;
+  canvas.height = 512;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.fillStyle = "#1a1a1a";
+  ctx.fillRect(0, 0, 1024, 512);
+
+  const softbox = (x, y, w, h, intensity) => {
+    const grd = ctx.createLinearGradient(x, y, x, y + h);
+    grd.addColorStop(0, `rgba(255, 255, 255, ${intensity})`);
+    grd.addColorStop(1, `rgba(50, 50, 50, ${intensity * 0.2})`);
+    ctx.fillStyle = grd;
+    ctx.shadowColor = "#ffffff";
+    ctx.shadowBlur = 80;
+    ctx.beginPath();
+    const rr = ctx.roundRect;
+    if (typeof rr === "function") rr.call(ctx, x, y, w, h, 60);
+    else ctx.rect(x, y, w, h);
+    ctx.fill();
+  };
+  softbox(50, 100, 300, 312, 1);
+  softbox(674, 100, 300, 312, 1);
+  softbox(350, -50, 324, 150, 0.9);
+  ctx.shadowBlur = 0;
+  return canvas;
+}
+
+const SDF_MAX = 512;
+const SDF_PAD = 24;
+const SDF_SPREAD = 32;
+
+function edt1d(f, d, v, z, n) {
+  let k = 0;
+  v[0] = 0;
+  z[0] = -Infinity;
+  z[1] = Infinity;
+  for (let q = 1; q < n; q++) {
+    let s = (f[q] + q * q - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+    while (s <= z[k]) {
+      k--;
+      s = (f[q] + q * q - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+    }
+    k++;
+    v[k] = q;
+    z[k] = s;
+    z[k + 1] = Infinity;
+  }
+  k = 0;
+  for (let q = 0; q < n; q++) {
+    while (z[k + 1] < q) k++;
+    d[q] = (q - v[k]) * (q - v[k]) + f[v[k]];
+  }
+}
+
+function edt2d(mask, w, h) {
+  const INF = 1e20;
+  const grid = new Float32Array(w * h);
+  for (let i = 0; i < w * h; i++) grid[i] = mask[i] ? 0 : INF;
+  const n = Math.max(w, h);
+  const f = new Float32Array(n);
+  const d = new Float32Array(n);
+  const v = new Int32Array(n);
+  const z = new Float32Array(n + 1);
+  for (let x = 0; x < w; x++) {
+    for (let y = 0; y < h; y++) f[y] = grid[y * w + x];
+    edt1d(f, d, v, z, h);
+    for (let y = 0; y < h; y++) grid[y * w + x] = d[y];
+  }
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) f[x] = grid[y * w + x];
+    edt1d(f, d, v, z, w);
+    for (let x = 0; x < w; x++) grid[y * w + x] = d[x];
+  }
+  return grid;
+}
+
+function bakeSDF(alpha, w, h) {
+  const inside = new Uint8Array(w * h);
+  const outside = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) {
+    const on = alpha[i * 4 + 3] > 127 ? 1 : 0;
+    inside[i] = on;
+    outside[i] = on ? 0 : 1;
+  }
+  const dOut = edt2d(inside, w, h);
+  const dIn = edt2d(outside, w, h);
+  const signed = new Float32Array(w * h);
+  for (let i = 0; i < w * h; i++) signed[i] = inside[i] ? Math.sqrt(dIn[i]) : -Math.sqrt(dOut[i]);
+
+  const blurred = new Float32Array(w * h);
+  const tmp = new Float32Array(w * h);
+  const K = [0.06136, 0.24477, 0.38774, 0.24477, 0.06136];
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      let s = 0;
+      for (let k = -2; k <= 2; k++) s += K[k + 2] * signed[y * w + Math.min(w - 1, Math.max(0, x + k))];
+      tmp[y * w + x] = s;
+    }
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      let s = 0;
+      for (let k = -2; k <= 2; k++) s += K[k + 2] * tmp[Math.min(h - 1, Math.max(0, y + k)) * w + x];
+      blurred[y * w + x] = s;
+    }
+
+  const out = new Uint8Array(w * h * 4);
+  for (let i = 0; i < w * h; i++) {
+    const norm = Math.max(0, Math.min(1, 0.5 + blurred[i] / (2 * SDF_SPREAD)));
+    const b = Math.round(norm * 255);
+    out[i * 4] = b;
+    out[i * 4 + 1] = b;
+    out[i * 4 + 2] = b;
+    out[i * 4 + 3] = 255;
+  }
+  return out;
+}
+
+function fallbackAlpha(w, h) {
+  const px = new Uint8ClampedArray(w * h * 4);
+  const hx = w / 2 - SDF_PAD;
+  const hy = h / 2 - SDF_PAD;
+  const r = Math.min(hx, hy) * 0.45;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx = Math.abs(x - w / 2) - (hx - r);
+      const dy = Math.abs(y - h / 2) - (hy - r);
+      const qx = Math.max(dx, 0);
+      const qy = Math.max(dy, 0);
+      const d = Math.hypot(qx, qy) + Math.min(Math.max(dx, dy), 0) - r;
+      px[(y * w + x) * 4 + 3] = d < 0 ? 255 : 0;
+    }
+  }
+  return px;
+}
+
+const FULLSCREEN_VS = `
+attribute vec2 aPos;
+void main() { gl_Position = vec4(aPos, 0.0, 1.0); }`;
+
+const PLATE_FS = `
+precision highp float;
+uniform sampler2D uPlate;
+uniform vec2 uPlateFit;
+uniform vec2 uRes;
+void main() {
+  vec2 uv = (gl_FragCoord.xy / uRes - 0.5) * uPlateFit + 0.5;
+  gl_FragColor = texture2D(uPlate, clamp(uv, 0.0, 1.0));
+}`;
+
+const GLASS_FS = `
+precision highp float;
+
+uniform vec2 uRes;
+uniform float uAspect;
+uniform float uTanHalf;
+
+uniform sampler2D uPlate;
+uniform vec2 uPlateFit;
+uniform float uHasPlate;
+uniform sampler2D uEnv;
+uniform sampler2D uSDF;
+
+uniform mat3 uRot;
+uniform mat3 uRotT;
+uniform vec3 uCenter;
+uniform float uScale;
+uniform float uBoundR;
+
+uniform float uShape;
+uniform float uHalfDepth;
+uniform float uBevel;
+uniform float uTorusTube;
+uniform vec2 uLogoHalf;
+uniform float uSdfUnits;
+
+uniform float uDisp;
+uniform float uFrost;
+uniform vec3 uTint;
+
+const float PI = 3.14159265359;
+const float CORE_REFRACT = ${CORE_REFRACT.toFixed(4)};
+const float IOR = ${IOR.toFixed(4)};
+const float THICKNESS = ${THICKNESS.toFixed(4)};
+
+float sdCross(vec2 p, vec2 b) {
+  p = abs(p);
+  p = (p.y > p.x) ? p.yx : p.xy;
+  vec2 q = p - b;
+  float k = max(q.y, q.x);
+  vec2 w = (k > 0.0) ? q : vec2(b.y - p.x, -k);
+  return sign(k) * length(max(w, 0.0));
+}
+
+vec2 r45(vec2 p) {
+  const float c = 0.7071067811865476;
+  return vec2((p.x + p.y) * c, (p.y - p.x) * c);
+}
+
+float sdLogo(vec2 p) {
+  vec2 uv = p / (2.0 * uLogoHalf) + 0.5;
+  uv.y = 1.0 - uv.y;
+  vec2 e = abs(p) - uLogoHalf;
+  float dBox = length(max(e, 0.0)) + min(max(e.x, e.y), 0.0);
+  float dTex = (0.5 - texture2D(uSDF, clamp(uv, 0.0, 1.0)).r) * 2.0 * uSdfUnits;
+  return max(dTex, dBox);
+}
+
+float extrudeRound(float d2, float pz, float hd, float r) {
+  vec2 q = vec2(d2 + r, abs(pz) - hd + r);
+  return min(max(q.x, q.y), 0.0) + length(max(q, 0.0)) - r;
+}
+
+float map(vec3 p) {
+  if (uShape < 0.5) {
+    return extrudeRound(sdCross(r45(p.xy), vec2(1.3, 0.35)), p.z, uHalfDepth, uBevel);
+  } else if (uShape < 1.5) {
+    vec2 q = vec2(length(p.xy) - 0.8, p.z);
+    return length(q) - uTorusTube;
+  } else if (uShape < 2.5) {
+    return length(p) - 1.2;
+  }
+  return extrudeRound(sdLogo(p.xy), p.z, uHalfDepth, uBevel);
+}
+
+vec3 mapNormal(vec3 p) {
+  const float e = 0.0015;
+  vec2 k = vec2(1.0, -1.0);
+  return normalize(
+    k.xyy * map(p + k.xyy * e) +
+    k.yyx * map(p + k.yyx * e) +
+    k.yxy * map(p + k.yxy * e) +
+    k.xxx * map(p + k.xxx * e)
+  );
+}
+
+vec4 plate(vec2 screenUv) {
+  if (uHasPlate < 0.5) return vec4(0.0);
+  vec2 uv = (screenUv - 0.5) * uPlateFit + 0.5;
+  return texture2D(uPlate, clamp(uv, 0.0, 1.0));
+}
+
+float rand(vec2 co) {
+  return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void main() {
+  vec2 screenUv = gl_FragCoord.xy / uRes;
+  vec2 ndc = screenUv * 2.0 - 1.0;
+
+  vec3 D = normalize(vec3(ndc.x * uTanHalf * uAspect, ndc.y * uTanHalf, -1.0));
+  vec3 rd = normalize(uRotT * D);
+  vec3 ro = (uRotT * -uCenter) / uScale;
+
+  float bb = dot(ro, rd);
+  float cc = dot(ro, ro) - uBoundR * uBoundR;
+  float hh = bb * bb - cc;
+  if (hh < 0.0) discard;
+  hh = sqrt(hh);
+  float t = max(-bb - hh, 0.0);
+  float tMax = -bb + hh;
+
+  bool hit = false;
+  for (int i = 0; i < 80; i++) {
+    if (t > tMax) break;
+    float d = map(ro + rd * t);
+    if (d < 0.0009) { hit = true; break; }
+    t += d * 0.9;
+  }
+  if (!hit) discard;
+
+  vec3 pObj = ro + rd * t;
+  vec3 nObj = mapNormal(pObj);
+
+  vec3 vP = uCenter + uScale * (uRot * pObj);
+  vec3 normal = normalize(uRot * nObj);
+  vec3 viewDir = normalize(-vP);
+
+  float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 4.0);
+
+  float coreFactor = pow(max(dot(normal, viewDir), 0.0), 2.0);
+  vec2 lensOffset = (screenUv - 0.5) * (CORE_REFRACT * 0.15) * coreFactor;
+
+  vec3 refractView = refract(-viewDir, normal, 1.0 / IOR);
+  vec2 offset = refractView.xy * (THICKNESS * 0.1) - lensOffset;
+
+  vec3 reflectDir = reflect(-viewDir, normal);
+  vec2 equirectUv = vec2(
+    atan(reflectDir.z, reflectDir.x) / (2.0 * PI) + 0.5,
+    asin(clamp(reflectDir.y, -1.0, 1.0)) / PI + 0.5
+  );
+  vec3 reflection = texture2D(uEnv, equirectUv).rgb * 2.5;
+
+  vec3 transmission = vec3(0.0);
+  float bgAlpha = 0.0;
+
+  vec2 uvR = screenUv + offset * (1.0 + uDisp);
+  vec2 uvG = screenUv + offset;
+  vec2 uvB = screenUv + offset * (1.0 - uDisp);
+
+  if (uFrost > 0.001) {
+    float rnd = rand(screenUv) * 6.2831853;
+    const int SAMPLES = 24;
+    const float GOLDEN_ANGLE = 2.39996323;
+    float radius = 0.0;
+    float radiusStep = 1.0 / float(SAMPLES);
+    float blurMultiplier = uFrost * 0.025;
+    for (int i = 0; i < SAMPLES; i++) {
+      float theta = float(i) * GOLDEN_ANGLE + rnd;
+      radius += radiusStep;
+      vec2 bo = vec2(cos(theta), sin(theta)) * radius * blurMultiplier;
+      transmission.r += plate(uvR + bo).r;
+      vec4 g = plate(uvG + bo);
+      transmission.g += g.g;
+      bgAlpha += g.a;
+      transmission.b += plate(uvB + bo).b;
+    }
+    transmission /= float(SAMPLES);
+    bgAlpha /= float(SAMPLES);
+  } else {
+    transmission.r = plate(uvR).r;
+    vec4 g = plate(uvG);
+    transmission.g = g.g;
+    bgAlpha = g.a;
+    transmission.b = plate(uvB).b;
+  }
+
+  transmission *= uTint;
+
+  vec3 clearGlassTint = mix(uTint, reflection, 0.5);
+  transmission = mix(clearGlassTint, transmission, bgAlpha);
+
+  vec3 finalColor = mix(transmission, reflection, fresnel * 0.8);
+
+  float baseAlpha = max(0.25, fresnel * 0.85);
+  float outAlpha = mix(baseAlpha, 1.0, bgAlpha);
+
+  gl_FragColor = vec4(finalColor, outAlpha);
+}`;
+
+function compile(gl, type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+    console.warn("LiquidGlassCluster shader:", gl.getShaderInfoLog(s));
+    gl.deleteShader(s);
+    return null;
+  }
+  return s;
+}
+
+function link(gl, vs, fs) {
+  const v = compile(gl, gl.VERTEX_SHADER, vs);
+  const f = compile(gl, gl.FRAGMENT_SHADER, fs);
+  if (!v || !f) return null;
+  const p = gl.createProgram();
+  gl.attachShader(p, v);
+  gl.attachShader(p, f);
+  gl.linkProgram(p);
+  gl.deleteShader(v);
+  gl.deleteShader(f);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
+    console.warn("LiquidGlassCluster link:", gl.getProgramInfoLog(p));
+    return null;
+  }
+  return p;
+}
+
+const DEFAULT_FONT = {
+  fontFamily: "Inter, system-ui, -apple-system, sans-serif",
+  fontSize: 96,
+  fontWeight: 700,
+  fontStyle: "normal",
+  letterSpacing: 0,
+  lineHeight: 1.1,
+};
+
+const DEFAULT_BACKDROP = {
+  type: "None",
+  image: "",
+  video: "",
+  text: "",
+  font: DEFAULT_FONT,
+  textColor: "#FFFFFF",
+};
+
+const DEFAULT_GLASS = { tint: "#FFFFFF", chromatic: 18, frost: 22 };
+const DEFAULT_ORIENT = { angleX: 0, angleY: 0, angleZ: 0, offsetX: 0, offsetY: 0 };
+
+class LiquidGlassCluster {
+  constructor(host, props = {}) {
+    this.host = host;
+    this.disposed = false;
+
+    this.background = props.background ?? "transparent";
+    this.shape = props.shape ?? "Torus";
+    this.logo = props.logo ?? "";
+    this.depth = props.depth ?? 32;
+    this.size = props.size ?? 60;
+    this.speed = props.speed ?? 60;
+    this.direction = props.direction ?? "Clockwise";
+    this.reducedMotion = !!props.reducedMotion;
+    this.bd = { ...DEFAULT_BACKDROP, ...(props.backdrop || {}), font: { ...DEFAULT_FONT, ...(props.backdrop?.font || {}) } };
+    this.gl3 = { ...DEFAULT_GLASS, ...(props.glass || {}) };
+    this.or = { ...DEFAULT_ORIENT, ...(props.orient || {}) };
+
+    host.style.position = "relative";
+    host.style.width = "100%";
+    host.style.height = "100%";
+    host.style.overflow = "hidden";
+    host.style.touchAction = "none";
+
+    this.canvas = document.createElement("canvas");
+    this.canvas.style.position = "absolute";
+    this.canvas.style.inset = "0";
+    this.canvas.style.width = "100%";
+    this.canvas.style.height = "100%";
+    this.canvas.style.display = "block";
+    host.appendChild(this.canvas);
+
+    const opts = { antialias: false, alpha: true, premultipliedAlpha: true };
+    const gl = this.canvas.getContext("webgl2", opts) || this.canvas.getContext("webgl", opts);
+    this.gl = gl;
+    if (!gl) {
+      this.ok = false;
+      return;
+    }
+    this.ok = true;
+
+    this._initGL();
+    this._bindEvents();
+
+    this.ro = new ResizeObserver(() => this._resize());
+    this.ro.observe(this.canvas);
+    this._resize();
+
+    this.rebuildSDF = true;
+    this.rebuildPlate = true;
+    this.sdfReady = false;
+    this.plateReady = false;
+    this.plateAspect = 1;
+    this.logoAspect = 1;
+    this.sdfH = 1;
+    this.sdfToken = 0;
+    this.plateToken = 0;
+    this.video = null;
+    this.fontsWaited = false;
+
+    this.baseYaw = 0;
+    this.basePitch = 0;
+    this.tiltX = 0;
+    this.tiltY = 0;
+    this.tiltTargetX = 0;
+    this.tiltTargetY = 0;
+    this.dragging = false;
+    this.lastX = 0;
+    this.lastY = 0;
+    this.elapsed = 0;
+    this.prevT = performance.now();
+    this.raf = 0;
+    this.paused = false;
+
+    this._loop = this._loop.bind(this);
+    this.raf = requestAnimationFrame(this._loop);
+  }
+
+  _initGL() {
+    const gl = this.gl;
+    this.plateProg = link(gl, FULLSCREEN_VS, PLATE_FS);
+    this.glassProg = link(gl, FULLSCREEN_VS, GLASS_FS);
+    if (!this.plateProg || !this.glassProg) {
+      this.ok = false;
+      return;
+    }
+
+    this.uPlatePass = {
+      plate: gl.getUniformLocation(this.plateProg, "uPlate"),
+      fit: gl.getUniformLocation(this.plateProg, "uPlateFit"),
+      res: gl.getUniformLocation(this.plateProg, "uRes"),
+    };
+    const p = this.glassProg;
+    this.u = {
+      res: gl.getUniformLocation(p, "uRes"),
+      aspect: gl.getUniformLocation(p, "uAspect"),
+      tanHalf: gl.getUniformLocation(p, "uTanHalf"),
+      plate: gl.getUniformLocation(p, "uPlate"),
+      plateFit: gl.getUniformLocation(p, "uPlateFit"),
+      hasPlate: gl.getUniformLocation(p, "uHasPlate"),
+      env: gl.getUniformLocation(p, "uEnv"),
+      sdf: gl.getUniformLocation(p, "uSDF"),
+      rot: gl.getUniformLocation(p, "uRot"),
+      rotT: gl.getUniformLocation(p, "uRotT"),
+      center: gl.getUniformLocation(p, "uCenter"),
+      scale: gl.getUniformLocation(p, "uScale"),
+      boundR: gl.getUniformLocation(p, "uBoundR"),
+      shape: gl.getUniformLocation(p, "uShape"),
+      halfDepth: gl.getUniformLocation(p, "uHalfDepth"),
+      bevel: gl.getUniformLocation(p, "uBevel"),
+      torusTube: gl.getUniformLocation(p, "uTorusTube"),
+      logoHalf: gl.getUniformLocation(p, "uLogoHalf"),
+      sdfUnits: gl.getUniformLocation(p, "uSdfUnits"),
+      disp: gl.getUniformLocation(p, "uDisp"),
+      frost: gl.getUniformLocation(p, "uFrost"),
+      tint: gl.getUniformLocation(p, "uTint"),
+    };
+    this.aPlatePos = gl.getAttribLocation(this.plateProg, "aPos");
+    this.aGlassPos = gl.getAttribLocation(this.glassProg, "aPos");
+
+    this.quadBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.quadBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+
+    const makeTex = (wrap) => {
+      const t = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, wrap);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
+      return t;
+    };
+    this.plateTex = makeTex(gl.CLAMP_TO_EDGE);
+    this.sdfTex = makeTex(gl.CLAMP_TO_EDGE);
+    this.envTex = makeTex(gl.REPEAT);
+
+    const envCanvas = buildEnvCanvas();
+    if (envCanvas) {
+      gl.bindTexture(gl.TEXTURE_2D, this.envTex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, envCanvas);
+    }
+
+    gl.disable(gl.DEPTH_TEST);
+    gl.enable(gl.BLEND);
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.clearColor(0, 0, 0, 0);
+  }
+
+  _bindEvents() {
+    const canvas = this.canvas;
+    this._onPointerMove = (e) => {
+      if (this.dragging) {
+        this.baseYaw += (e.clientX - this.lastX) * DRAG_GAIN;
+        this.basePitch += (e.clientY - this.lastY) * DRAG_GAIN;
+        this.basePitch = Math.max(-1.4, Math.min(1.4, this.basePitch));
+        this.lastX = e.clientX;
+        this.lastY = e.clientY;
+        return;
+      }
+      const r = canvas.getBoundingClientRect();
+      this.tiltTargetX = (((e.clientX - r.left) / Math.max(r.width, 1)) * 2 - 1) * TILT_RANGE;
+      this.tiltTargetY = (-((e.clientY - r.top) / Math.max(r.height, 1)) * 2 + 1) * TILT_RANGE;
+    };
+    this._onPointerDown = (e) => {
+      this.dragging = true;
+      this.lastX = e.clientX;
+      this.lastY = e.clientY;
+    };
+    this._onPointerUp = () => { this.dragging = false; };
+    this._onLeave = () => {
+      if (!this.dragging) { this.tiltTargetX = 0; this.tiltTargetY = 0; }
+    };
+
+    canvas.addEventListener("pointerdown", this._onPointerDown);
+    canvas.addEventListener("pointerleave", this._onLeave);
+    window.addEventListener("pointermove", this._onPointerMove);
+    window.addEventListener("pointerup", this._onPointerUp);
+    window.addEventListener("pointercancel", this._onPointerUp);
+  }
+
+  _resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.dprCur = dpr;
+    const cw = this.canvas.clientWidth || this.host.clientWidth || 1;
+    const ch = this.canvas.clientHeight || this.host.clientHeight || 1;
+    const w = Math.max(1, Math.round(cw * dpr));
+    const h = Math.max(1, Math.round(ch * dpr));
+    if (w === this.vw && h === this.vh) return;
+    this.vw = w;
+    this.vh = h;
+    this.canvas.width = w;
+    this.canvas.height = h;
+    if (this.bd.type === "Text") this.rebuildPlate = true;
+  }
+
+  _uploadSDF(alpha, w, h, aspect) {
+    const gl = this.gl;
+    const bytes = bakeSDF(alpha, w, h);
+    this.sdfH = h;
+    this.logoAspect = aspect;
+    gl.bindTexture(gl.TEXTURE_2D, this.sdfTex);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, bytes);
+    this.sdfReady = true;
+  }
+
+  _bakeFallback() {
+    this._uploadSDF(fallbackAlpha(320, 320), 320, 320, 1);
+  }
+
+  _bakeLogo() {
+    const url = this.logo;
+    if (!url) { this._bakeFallback(); return; }
+    const token = ++this.sdfToken;
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      if (token !== this.sdfToken) return;
+      const scale = Math.min(
+        (SDF_MAX - SDF_PAD * 2) / Math.max(img.width, 1),
+        (SDF_MAX - SDF_PAD * 2) / Math.max(img.height, 1),
+        1
+      );
+      const iw = Math.max(1, Math.round(img.width * scale));
+      const ih = Math.max(1, Math.round(img.height * scale));
+      const w = iw + SDF_PAD * 2;
+      const h = ih + SDF_PAD * 2;
+      const c = document.createElement("canvas");
+      c.width = w; c.height = h;
+      const c2d = c.getContext("2d");
+      if (!c2d) return;
+      c2d.clearRect(0, 0, w, h);
+      c2d.drawImage(img, SDF_PAD, SDF_PAD, iw, ih);
+      let data;
+      try { data = c2d.getImageData(0, 0, w, h); } catch { this._bakeFallback(); return; }
+      this._uploadSDF(data.data, w, h, w / h);
+    };
+    img.onerror = () => { if (token === this.sdfToken) this._bakeFallback(); };
+    img.src = url;
+  }
+
+  _clearVideo() {
+    if (!this.video) return;
+    this.video.pause();
+    this.video.removeAttribute("src");
+    this.video.load();
+    this.video = null;
+  }
+
+  _bakePlateText() {
+    const gl = this.gl;
+    const w = Math.max(2, this.vw);
+    const h = Math.max(2, this.vh);
+    const c = document.createElement("canvas");
+    c.width = w; c.height = h;
+    const ctx2d = c.getContext("2d");
+    if (!ctx2d) return;
+
+    const f = this.bd.font;
+    const fontPx = numOf(f.fontSize, 96) * this.dprCur;
+    const weight = f.fontWeight ?? 700;
+    const family = f.fontFamily || "Inter, system-ui, sans-serif";
+    const fstyle = f.fontStyle || "normal";
+    const lineH = numOf(f.lineHeight, 1.1) * fontPx;
+    const tracking = numOf(f.letterSpacing, 0) * this.dprCur;
+
+    ctx2d.clearRect(0, 0, w, h);
+    ctx2d.fillStyle = this.background === "transparent" ? "#000000" : this.background;
+    if (this.background !== "transparent") ctx2d.fillRect(0, 0, w, h);
+    ctx2d.font = `${fstyle} ${weight} ${fontPx}px ${family}`;
+    ctx2d.textAlign = "center";
+    ctx2d.textBaseline = "middle";
+    ctx2d.fillStyle = this.bd.textColor || "#FFFFFF";
+    if ("letterSpacing" in ctx2d) ctx2d.letterSpacing = `${tracking}px`;
+
+    const lines = String(this.bd.text ?? "").split("\n");
+    const top = h / 2 - ((lines.length - 1) * lineH) / 2;
+    for (let i = 0; i < lines.length; i++) ctx2d.fillText(lines[i], w / 2, top + i * lineH);
+
+    this.plateAspect = w / h;
+    gl.bindTexture(gl.TEXTURE_2D, this.plateTex);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+    this.plateReady = true;
+
+    if (!this.fontsWaited && typeof document !== "undefined" && document.fonts) {
+      this.fontsWaited = true;
+      document.fonts.ready.then(() => { if (this.bd.type === "Text") this.rebuildPlate = true; });
+    }
+  }
+
+  _loadPlate() {
+    const gl = this.gl;
+    this._clearVideo();
+    this.plateReady = false;
+    const token = ++this.plateToken;
+
+    if (this.bd.type === "Text") { this._bakePlateText(); return; }
+
+    if (this.bd.type === "Image" && this.bd.image) {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = () => {
+        if (token !== this.plateToken) return;
+        this.plateAspect = img.width / Math.max(img.height, 1);
+        gl.bindTexture(gl.TEXTURE_2D, this.plateTex);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        this.plateReady = true;
+      };
+      img.src = this.bd.image;
+      return;
+    }
+
+    if (this.bd.type === "Video" && this.bd.video) {
+      const v = document.createElement("video");
+      v.crossOrigin = "anonymous";
+      v.playsInline = true;
+      v.loop = true;
+      v.muted = true;
+      v.src = this.bd.video;
+      v.play().catch(() => {});
+      this.video = v;
+    }
+  }
+
+  _pumpVideo() {
+    const gl = this.gl;
+    if (!this.video || this.video.readyState < 2 || !this.video.videoWidth) return;
+    this.plateAspect = this.video.videoWidth / Math.max(this.video.videoHeight, 1);
+    gl.bindTexture(gl.TEXTURE_2D, this.plateTex);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.video);
+    this.plateReady = true;
+  }
+
+  setPaused(paused) {
+    this.paused = paused;
+    if (!paused) this.prevT = performance.now();
+  }
+
+  _loop(now) {
+    if (this.disposed) return;
+    this.raf = requestAnimationFrame(this._loop);
+    if (this.paused || !this.ok) return;
+
+    const dt = Math.min((now - this.prevT) / 1000, 0.05);
+    this.prevT = now;
+    this.elapsed += dt;
+
+    if (this.rebuildSDF) { this.rebuildSDF = false; this._bakeLogo(); }
+    if (this.rebuildPlate) { this.rebuildPlate = false; this._loadPlate(); }
+    if (this.video) this._pumpVideo();
+
+    const isLogo = this.shape === "Logo";
+    if (isLogo && !this.sdfReady) return;
+
+    const k = 1 - Math.exp(-TILT_RATE * dt);
+    this.tiltX += (this.tiltTargetX - this.tiltX) * k;
+    this.tiltY += (this.tiltTargetY - this.tiltY) * k;
+
+    const spin = this.reducedMotion ? 0 : (this.speed / 50) * (this.direction === "Counterclockwise" ? -1 : 1);
+    this.baseYaw += spin * SPIN_YAW * dt;
+    this.basePitch += spin * SPIN_PITCH * dt;
+
+    const o = this.or;
+    const yaw = this.baseYaw + this.tiltX + o.angleY * DEG;
+    const pitch = Math.max(-1.45, Math.min(1.45, this.basePitch - this.tiltY)) + o.angleX * DEG;
+    const rot = rotYXZ(yaw, pitch, o.angleZ * DEG);
+    const rotT = transpose3(rot);
+
+    const camDist = CAM_DIST;
+    const halfFrame = camDist * Math.tan(FOV / 2);
+    const targetHalf = Math.max(0.02, this.size / 100) * halfFrame;
+
+    const nativeDepth = Math.max(0, this.depth / 100);
+    const torusTube = Math.max(0.02, nativeDepth * 0.5);
+    let refHalf, boundR, shapeId;
+    let halfDepth = nativeDepth * 0.5;
+    let bevel = BEVEL;
+    let logoHalfX = 1, logoHalfY = 1;
+
+    if (this.shape === "X") {
+      shapeId = 0; refHalf = 1.3; boundR = Math.hypot(1.3, 0.35) + halfDepth + bevel;
+    } else if (this.shape === "Torus") {
+      shapeId = 1; refHalf = 0.8 + torusTube; boundR = 0.8 + torusTube;
+    } else if (this.shape === "Sphere") {
+      shapeId = 2; refHalf = 1.2; boundR = 1.2;
+    } else {
+      shapeId = 3; logoHalfY = 1; logoHalfX = this.logoAspect; refHalf = 1;
+      halfDepth *= refHalf / 1.3;
+      bevel *= refHalf / 1.3;
+      boundR = Math.hypot(logoHalfX, logoHalfY, halfDepth) + bevel;
+    }
+
+    const scale = targetHalf / refHalf;
+    const floatY = this.reducedMotion ? 0 : Math.sin(this.elapsed * 2) * IDLE_FLOAT;
+
+    const screenAspect = this.vw / this.vh;
+    const fitX = screenAspect > this.plateAspect ? 1 : screenAspect / this.plateAspect;
+    const fitY = screenAspect > this.plateAspect ? this.plateAspect / screenAspect : 1;
+    const hasPlate = this.plateReady && this.bd.type !== "None" ? 1 : 0;
+
+    const gl = this.gl;
+    gl.viewport(0, 0, this.vw, this.vh);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.quadBuf);
+
+    if (hasPlate) {
+      gl.useProgram(this.plateProg);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, this.plateTex);
+      gl.uniform1i(this.uPlatePass.plate, 0);
+      gl.uniform2f(this.uPlatePass.fit, fitX, fitY);
+      gl.uniform2f(this.uPlatePass.res, this.vw, this.vh);
+      gl.enableVertexAttribArray(this.aPlatePos);
+      gl.vertexAttribPointer(this.aPlatePos, 2, gl.FLOAT, false, 0, 0);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
+    gl.useProgram(this.glassProg);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, this.plateTex);
+    gl.uniform1i(this.u.plate, 0);
+    gl.activeTexture(gl.TEXTURE1);
+    gl.bindTexture(gl.TEXTURE_2D, this.envTex);
+    gl.uniform1i(this.u.env, 1);
+    gl.activeTexture(gl.TEXTURE2);
+    gl.bindTexture(gl.TEXTURE_2D, this.sdfTex);
+    gl.uniform1i(this.u.sdf, 2);
+
+    gl.uniform2f(this.u.res, this.vw, this.vh);
+    gl.uniform1f(this.u.aspect, screenAspect);
+    gl.uniform1f(this.u.tanHalf, Math.tan(FOV / 2));
+    gl.uniform2f(this.u.plateFit, fitX, fitY);
+    gl.uniform1f(this.u.hasPlate, hasPlate);
+
+    gl.uniformMatrix3fv(this.u.rot, false, rot);
+    gl.uniformMatrix3fv(this.u.rotT, false, rotT);
+
+    gl.uniform3f(
+      this.u.center,
+      (o.offsetX / 100) * halfFrame * screenAspect,
+      floatY + (o.offsetY / 100) * halfFrame,
+      -camDist
+    );
+    gl.uniform1f(this.u.scale, scale);
+    gl.uniform1f(this.u.boundR, boundR);
+
+    gl.uniform1f(this.u.shape, shapeId);
+    gl.uniform1f(this.u.halfDepth, halfDepth);
+    gl.uniform1f(this.u.bevel, bevel);
+    gl.uniform1f(this.u.torusTube, torusTube);
+    gl.uniform2f(this.u.logoHalf, logoHalfX, logoHalfY);
+    gl.uniform1f(this.u.sdfUnits, (SDF_SPREAD * (2 * logoHalfY)) / Math.max(this.sdfH, 1));
+
+    const g = this.gl3;
+    gl.uniform1f(this.u.disp, g.chromatic / 1000);
+    gl.uniform1f(this.u.frost, g.frost / 100);
+    const tint = parseColor(g.tint, [1, 1, 1]);
+    gl.uniform3f(this.u.tint, tint[0], tint[1], tint[2]);
+
+    gl.enableVertexAttribArray(this.aGlassPos);
+    gl.vertexAttribPointer(this.aGlassPos, 2, gl.FLOAT, false, 0, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+
+  dispose() {
+    this.disposed = true;
+    cancelAnimationFrame(this.raf);
+    this.sdfToken++;
+    this.plateToken++;
+    this._clearVideo();
+    if (this.ro) this.ro.disconnect();
+    if (this.canvas) {
+      this.canvas.removeEventListener("pointerdown", this._onPointerDown);
+      this.canvas.removeEventListener("pointerleave", this._onLeave);
+    }
+    window.removeEventListener("pointermove", this._onPointerMove);
+    window.removeEventListener("pointerup", this._onPointerUp);
+    window.removeEventListener("pointercancel", this._onPointerUp);
+    if (this.canvas && this.canvas.parentNode === this.host) this.host.removeChild(this.canvas);
+  }
+}
+
+/**
+ * Mount a Liquid Glass Cluster into `host`. Returns a controller with
+ * dispose()/setPaused(). Returns null if WebGL isn't available or shader
+ * compilation fails, so the caller can keep its CSS fallback visible.
+ */
+function mountLiquidGlass(host, props = {}) {
+  if (!host) return null;
+  let instance;
+  try {
+    instance = new LiquidGlassCluster(host, props);
+  } catch (e) {
+    console.warn("Liquid Glass Cluster failed to initialize, falling back:", e);
+    return null;
+  }
+  if (!instance.ok) {
+    instance.dispose();
+    return null;
+  }
+
+  const onVisibility = () => instance.setPaused(document.hidden);
+  document.addEventListener("visibilitychange", onVisibility);
+
+  return {
+    dispose() {
+      document.removeEventListener("visibilitychange", onVisibility);
+      instance.dispose();
+    },
+    setPaused(p) {
+      instance.setPaused(p);
+    },
+  };
+}
+
+/* ================================================================= */
 
 /* ================= GLOBAL STATE ================= */
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isTouch = window.matchMedia('(pointer: coarse)').matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isTouch = window.matchMedia("(pointer: coarse)").matches;
 const isMobile = window.innerWidth < 780;
 
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ================= KINETIC TEXT SCRAMBLE ================= */
+/* Letters resolve left-to-right out of a shuffling glyph set — the
+   hero's kinetic typography moment. Skipped (final text shown
+   immediately) under prefers-reduced-motion. */
+function kineticReveal(el, finalText, { stagger = 42, randomWindow = 360 } = {}) {
+  if (prefersReducedMotion) {
+    el.textContent = finalText;
+    return;
+  }
+  const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*";
+  const start = performance.now();
+  const n = finalText.length;
+  function frame(now) {
+    const elapsed = now - start;
+    let out = "";
+    let done = true;
+    for (let i = 0; i < n; i++) {
+      const ch = finalText[i];
+      if (ch === " ") {
+        out += " ";
+        continue;
+      }
+      const lockAt = i * stagger + randomWindow;
+      if (elapsed >= lockAt) {
+        out += ch;
+      } else {
+        out += glyphs[(Math.random() * glyphs.length) | 0];
+        done = false;
+      }
+    }
+    el.textContent = out;
+    if (!done) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
 
 /* ================= LOADER ================= */
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  const hero = document.querySelector('.hero');
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const hero = document.querySelector(".hero");
   setTimeout(() => {
-    loader.classList.add('hidden');
-    hero.classList.add('loaded');
+    loader.classList.add("hidden");
+    hero.classList.add("loaded");
+
+    document.querySelectorAll(".scramble").forEach((el, i) => {
+      const finalText = el.dataset.text || el.textContent;
+      setTimeout(() => kineticReveal(el, finalText), i * 160);
+    });
   }, 900);
 });
 
+/* ================= MAGNETIC BUTTONS ================= */
+/* Hero CTAs drift slightly toward the cursor within their own bounds —
+   a restrained kinetic touch, desktop pointer only. */
+if (!isTouch && !prefersReducedMotion) {
+  document.querySelectorAll(".hero-actions .btn").forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const mx = e.clientX - rect.left - rect.width / 2;
+      const my = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${mx * 0.22}px, ${my * 0.35 - 2}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+    });
+  });
+}
+
 /* ================= CUSTOM CURSOR ================= */
 if (!isTouch) {
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  let mx = window.innerWidth/2, my = window.innerHeight/2;
+  const dot = document.getElementById("cursorDot");
+  const ring = document.getElementById("cursorRing");
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
   let rx = mx, ry = my;
-  window.addEventListener('mousemove', e => {
+  window.addEventListener("mousemove", (e) => {
     mx = e.clientX; my = e.clientY;
     dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
   });
-  function ringLoop(){
+  function ringLoop() {
     rx += (mx - rx) * 0.18;
     ry += (my - ry) * 0.18;
     ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
     requestAnimationFrame(ringLoop);
   }
   ringLoop();
-  document.querySelectorAll('a, button, .tilt-card').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  document.querySelectorAll("a, button, .tilt-card").forEach((el) => {
+    el.addEventListener("mouseenter", () => ring.classList.add("hover"));
+    el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
   });
 } else {
-  document.body.classList.add('no-custom-cursor');
+  document.body.classList.add("no-custom-cursor");
 }
 
 /* ================= NAV ================= */
-const navToggle = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const menuClose = document.getElementById('menuClose');
-navToggle?.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.classList.add('noscroll'); });
-menuClose?.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.classList.remove('noscroll'); });
-document.querySelectorAll('[data-nav-mobile]').forEach(a => a.addEventListener('click', () => {
-  mobileMenu.classList.remove('open'); document.body.classList.remove('noscroll');
-}));
+const navToggle = document.getElementById("navToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuClose = document.getElementById("menuClose");
+navToggle?.addEventListener("click", () => {
+  mobileMenu.classList.add("open");
+  navToggle.setAttribute("aria-expanded", "true");
+  document.body.classList.add("noscroll");
+});
+menuClose?.addEventListener("click", () => {
+  mobileMenu.classList.remove("open");
+  navToggle?.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("noscroll");
+});
+document.querySelectorAll("[data-nav-mobile]").forEach((a) =>
+  a.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    navToggle?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("noscroll");
+  })
+);
 
-const navLinks = document.querySelectorAll('[data-nav]');
-const navSections = ['home','about','skills','work','contact'].map(id => document.getElementById(id));
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
-    }
-  });
-}, { rootMargin: '-45% 0px -45% 0px' });
-navSections.forEach(s => s && navObserver.observe(s));
+const navLinks = document.querySelectorAll("[data-nav]");
+const navSections = ["home", "about", "skills", "work", "contact"].map((id) => document.getElementById(id));
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === "#" + id));
+      }
+    });
+  },
+  { rootMargin: "-45% 0px -45% 0px" }
+);
+navSections.forEach((s) => s && navObserver.observe(s));
 
 /* ================= SCROLL REVEAL ================= */
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('in-view'), (i % 4) * 90);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-revealEls.forEach(el => revealObserver.observe(el));
-
-/* ================= HERO TEXT REVEAL ================= */
-setTimeout(() => {}, 0); // handled purely via CSS class .hero.loaded
+const revealEls = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add("in-view"), (i % 4) * 90);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+revealEls.forEach((el) => revealObserver.observe(el));
 
 /* ================= CARD TILT ================= */
-document.querySelectorAll('.tilt-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
+document.querySelectorAll(".tilt-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
     if (prefersReducedMotion) return;
     const rect = card.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
@@ -929,153 +1786,690 @@ document.querySelectorAll('.tilt-card').forEach(card => {
     const rotY = (px - 0.5) * 8;
     const rotX = (0.5 - py) * 8;
     card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(0)`;
-    card.style.setProperty('--mx', `${px*100}%`);
-    card.style.setProperty('--my', `${py*100}%`);
+    card.style.setProperty("--mx", `${px * 100}%`);
+    card.style.setProperty("--my", `${py * 100}%`);
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "perspective(800px) rotateX(0) rotateY(0)";
   });
 });
 
-document.querySelectorAll('.glass').forEach(card => {
-  card.addEventListener('mousemove', e => {
+document.querySelectorAll(".glass").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width * 100;
-    const py = (e.clientY - rect.top) / rect.height * 100;
-    card.style.setProperty('--mx', `${px}%`);
-    card.style.setProperty('--my', `${py}%`);
+    const px = ((e.clientX - rect.left) / rect.width) * 100;
+    const py = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--mx", `${px}%`);
+    card.style.setProperty("--my", `${py}%`);
   });
 });
 
-/* ================= THREE.JS BACKGROUND SCENE ================= */
-const canvas = document.getElementById('bg-canvas');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
-renderer.setSize(window.innerWidth, window.innerHeight);
+/* =================================================================
+   Everything below depends on Three.js, loaded at runtime from a
+   CDN (unpkg). All of it is wrapped in dynamic imports with
+   try/catch so that a blocked or slow CDN — or a browser without
+   WebGL — degrades to the CSS-only fallbacks above (nav, cursor,
+   reveals, cards) instead of breaking the whole page.
+   ================================================================= */
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(0, 0, 12);
-
-const accentColor = new THREE.Color(0xd7b27c);
-const dim = new THREE.Color(0x3a3d46);
-
-const ambient = new THREE.AmbientLight(0xffffff, 0.35);
-scene.add(ambient);
-const key = new THREE.PointLight(0xd7b27c, 12, 40);
-key.position.set(6, 4, 8);
-scene.add(key);
-const rim = new THREE.PointLight(0x6f8bff, 6, 40);
-rim.position.set(-8, -4, -4);
-scene.add(rim);
-
-const objectsGroup = new THREE.Group();
-scene.add(objectsGroup);
-
-function makeGlassMaterial(color, opacity){
-  return new THREE.MeshPhysicalMaterial({
-    color, transparent: true, opacity,
-    roughness: 0.15, metalness: 0.1,
-    transmission: 0.55, thickness: 1.2,
-    clearcoat: 1, clearcoatRoughness: 0.2,
-    ior: 1.3
-  });
-}
-
-const shapeDefs = [
-  { geo: new THREE.IcosahedronGeometry(1.6, 0), pos: [-3.6, 1.4, -2], wire: true },
-  { geo: new THREE.TorusGeometry(1.3, 0.32, 24, 90), pos: [3.8, -1.2, -3], wire: false },
-  { geo: new THREE.OctahedronGeometry(1.1, 0), pos: [2.6, 2.6, -5], wire: true },
-  { geo: new THREE.IcosahedronGeometry(0.85, 1), pos: [-3, -2.4, -4], wire: false },
-];
-
-const meshes = [];
-shapeDefs.forEach((def, i) => {
-  let mat;
-  if (def.wire) {
-    mat = new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? accentColor : 0x8f97ab, wireframe: true, transparent: true, opacity: 0.35 });
-  } else {
-    mat = makeGlassMaterial(i % 2 === 0 ? accentColor : 0xb9c2d8, 0.55);
+function hasWebGL() {
+  try {
+    const c = document.createElement("canvas");
+    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+  } catch {
+    return false;
   }
-  const mesh = new THREE.Mesh(def.geo, mat);
-  mesh.position.set(...def.pos);
-  mesh.userData.speed = 0.06 + Math.random() * 0.08;
-  mesh.userData.floatOffset = Math.random() * Math.PI * 2;
-  mesh.userData.baseY = def.pos[1];
-  objectsGroup.add(mesh);
-  meshes.push(mesh);
-});
-
-/* particles */
-const particleCount = isMobile ? 220 : 650;
-const positions = new Float32Array(particleCount * 3);
-for (let i = 0; i < particleCount; i++) {
-  positions[i*3] = (Math.random() - 0.5) * 26;
-  positions[i*3+1] = (Math.random() - 0.5) * 16;
-  positions[i*3+2] = (Math.random() - 0.5) * 20 - 4;
 }
-const particleGeo = new THREE.BufferGeometry();
-particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-const particleMat = new THREE.PointsMaterial({ color: 0xd7b27c, size: 0.035, transparent: true, opacity: 0.55, sizeAttenuation: true });
-const particles = new THREE.Points(particleGeo, particleMat);
-scene.add(particles);
 
-/* mouse + scroll interactivity */
-let targetRotX = 0, targetRotY = 0;
-let curRotX = 0, curRotY = 0;
-window.addEventListener('mousemove', (e) => {
-  if (prefersReducedMotion) return;
-  const nx = (e.clientX / window.innerWidth) - 0.5;
-  const ny = (e.clientY / window.innerHeight) - 0.5;
-  targetRotY = nx * 0.5;
-  targetRotX = ny * 0.35;
-});
-
-let scrollFrac = 0;
-function updateScroll(){
-  const max = document.body.scrollHeight - window.innerHeight;
-  scrollFrac = max > 0 ? window.scrollY / max : 0;
-}
-window.addEventListener('scroll', updateScroll, { passive: true });
-updateScroll();
-
-function onResize(){
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
-window.addEventListener('resize', onResize);
-
-const clock = new THREE.Clock();
-function animate(){
-  const t = clock.getElapsedTime();
-
-  if (!prefersReducedMotion) {
-    curRotX += (targetRotX - curRotX) * 0.04;
-    curRotY += (targetRotY - curRotY) * 0.04;
-    objectsGroup.rotation.x = curRotX * 0.6;
-    objectsGroup.rotation.y = curRotY * 0.6 + t * 0.02;
-
-    meshes.forEach(m => {
-      m.rotation.x += m.userData.speed * 0.01;
-      m.rotation.y += m.userData.speed * 0.015;
-      m.position.y = m.userData.baseY + Math.sin(t * 0.4 + m.userData.floatOffset) * 0.25;
+/* ---- Liquid Glass nav mark (no CDN dependency, pure local WebGL) ---- */
+(async () => {
+  const navChipGlass = document.querySelector(".nav-chip-glass");
+  const navChip = document.querySelector(".nav-chip");
+  if (!navChipGlass || !hasWebGL()) return;
+  try {
+    const glass = mountLiquidGlass(navChipGlass, {
+      shape: "Torus",
+      depth: 34,
+      size: 72,
+      speed: prefersReducedMotion ? 0 : 55,
+      reducedMotion: prefersReducedMotion,
+      backdrop: { type: "None" },
+      glass: { tint: "#d7b27c", chromatic: 16, frost: 18 },
+      orient: { angleX: 18 },
     });
+    if (glass && navChip) navChip.classList.add("glass-active");
+  } catch (e) {
+    console.warn("Liquid glass nav mark unavailable, using flat fallback:", e);
+  }
+})();
 
-    particles.rotation.y = t * 0.008;
-    camera.position.z = 12 - scrollFrac * 3;
-    camera.position.y = -scrollFrac * 1.5;
+/* ---- Ambient background scene + Particle Saturn hero visual ---- */
+(async () => {
+  const heroSceneWrap = document.querySelector(".hero-scene-wrap");
+  const heroFallback = heroSceneWrap?.querySelector(".hero-scene-fallback");
+
+  if (!hasWebGL()) {
+    if (heroFallback) heroFallback.style.display = "block";
+    return;
   }
 
-  renderer.render(scene, camera);
-  requestAnimationFrame(animate);
-}
-animate();
+  let THREE;
+  try {
+    THREE = await import("https://unpkg.com/three@0.160.0/build/three.module.js");
+  } catch (e) {
+    console.warn("Three.js CDN unavailable — showing static fallbacks for the 3D scenes:", e);
+    if (heroFallback) heroFallback.style.display = "block";
+    return;
+  }
 
-/* cleanup on page hide to save resources */
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) clock.stop(); else clock.start();
-});
+  /* ---- Particle Saturn engine (needs THREE, defined once the CDN import above succeeds) ---- */
+  /**
+   * Particle Saturn — vanilla Three.js port
+   *
+   * Adapted from a supplied React/TSX "Particle Saturn" (Originkit) component.
+   * The original component's actual engine (SaturnScene) was already plain
+   * Three.js/TypeScript; only its React mount wrapper (useEffect/useRef) has
+   * been removed here and replaced with explicit init/start/dispose methods,
+   * since this project is a static HTML/CSS/JS site rather than a React app.
+   * All shader source, geometry construction, settings math and cleanup
+   * logic are preserved from the original.
+   */
+  const PERSPECTIVE = 0.15;
+  const VIEW_SPAN = 6.4;
+  const CORE_RADIUS = 1;
+  const MAX_MOTES = 90000;
+  const RING_THICKNESS = 0.011;
+  const RING_MOTE_FACTOR = 1.35;
+
+  const SATURN_DEFAULTS = {
+    coreColor: "#d7b27c",
+    ringColor: "#f1dfb6",
+    density: 11,
+    particleSize: 12,
+    glow: 14,
+    tilt: 8,
+    roll: 6,
+    spinSpeed: 3.2,
+    ringOptions: {
+      innerRadius: 128,
+      outerRadius: 236,
+      gaps: 1,
+      orbitSpeed: 6,
+    },
+    dragSensitivity: 2,
+    sizePercent: 128,
+  };
+
+  function clamp(v, lo, hi, fallback) {
+    const n = typeof v === "number" && isFinite(v) ? v : fallback;
+    return Math.max(lo, Math.min(hi, n));
+  }
+
+  function settingsFor(cfg) {
+    const ring = cfg.ringOptions ?? SATURN_DEFAULTS.ringOptions;
+    const density = clamp(cfg.density, 1, 20, SATURN_DEFAULTS.density);
+
+    const baseMotes = 600 + density * density * 95;
+    const coreMotes = Math.min(MAX_MOTES, Math.round(baseMotes));
+    const ringMotes = Math.min(MAX_MOTES, Math.round(baseMotes * RING_MOTE_FACTOR));
+
+    const innerFraction = clamp(ring.innerRadius, 105, 200, SATURN_DEFAULTS.ringOptions.innerRadius) / 100;
+    const outerFraction = clamp(ring.outerRadius, 110, 300, SATURN_DEFAULTS.ringOptions.outerRadius) / 100;
+
+    return {
+      coreMotes,
+      ringMotes,
+      moteSize: 0.5 + clamp(cfg.particleSize, 1, 20, SATURN_DEFAULTS.particleSize) * 0.13,
+      glow: 0.15 + clamp(cfg.glow, 1, 20, SATURN_DEFAULTS.glow) * 0.055,
+      tiltRadians: (clamp(cfg.tilt, -80, 80, SATURN_DEFAULTS.tilt) * Math.PI) / 180,
+      rollRadians: (clamp(cfg.roll, -90, 90, SATURN_DEFAULTS.roll) * Math.PI) / 180,
+      spinRate: clamp(cfg.spinSpeed, 0, 20, SATURN_DEFAULTS.spinSpeed) * 0.05,
+      innerRadius: innerFraction * CORE_RADIUS,
+      outerRadius: Math.max(innerFraction + 0.08, outerFraction) * CORE_RADIUS,
+      gapCount: Math.round(clamp(ring.gaps, 0, 4, SATURN_DEFAULTS.ringOptions.gaps)),
+      ringThickness: RING_THICKNESS,
+      orbitRate: clamp(ring.orbitSpeed, 0, 20, SATURN_DEFAULTS.ringOptions.orbitSpeed) * 0.11,
+    };
+  }
+
+  function insideGap(S, radius, span) {
+    for (let g = 0; g < S.gapCount; g++) {
+      const centre = S.innerRadius + span * ((g + 1) / (S.gapCount + 1));
+      const halfWidth = span * (0.075 - g * 0.011);
+      if (Math.abs(radius - centre) < halfWidth) return true;
+    }
+    return false;
+  }
+
+  function pickRingRadius(S, span) {
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const u = Math.sqrt(Math.random());
+      const radius = S.innerRadius + u * span;
+      if (!insideGap(S, radius, span)) return radius;
+    }
+    return S.outerRadius;
+  }
+
+  function buildCloud(S) {
+    const count = S.coreMotes + S.ringMotes;
+    const position = new Float32Array(count * 3);
+    const kind = new Float32Array(count);
+    const along = new Float32Array(count);
+    const seed = new Float32Array(count);
+    const radius = new Float32Array(count);
+
+    for (let i = 0; i < S.coreMotes; i++) {
+      kind[i] = 0;
+      along[i] = (i + 0.5) / S.coreMotes;
+      seed[i] = Math.random();
+      radius[i] = 0;
+    }
+
+    const span = S.outerRadius - S.innerRadius;
+    for (let i = 0; i < S.ringMotes; i++) {
+      const k = S.coreMotes + i;
+      kind[k] = 1;
+      along[k] = i / Math.max(1, S.ringMotes - 1);
+      seed[k] = Math.random();
+      radius[k] = pickRingRadius(S, span);
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(position, 3));
+    geometry.setAttribute("aKind", new THREE.BufferAttribute(kind, 1));
+    geometry.setAttribute("aAlong", new THREE.BufferAttribute(along, 1));
+    geometry.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
+    geometry.setAttribute("aRadius", new THREE.BufferAttribute(radius, 1));
+    return geometry;
+  }
+
+  const SATURN_VERTEX = `
+    attribute float aKind;
+    attribute float aAlong;
+    attribute float aSeed;
+    attribute float aRadius;
+
+    uniform float uTime;
+    uniform float uMoteSize;
+    uniform float uOrbitRate;
+    uniform float uRingThickness;
+    uniform float uCoreRadius;
+    uniform float uPixelRatio;
+
+    varying float vKind;
+    varying float vBright;
+
+    const float TAU = 6.28318530718;
+
+    float hash11(float n) {
+      return fract(sin(n * 78.233) * 43758.5453);
+    }
+
+    void main() {
+      vec3 modelPos;
+      float bright = 1.0;
+
+      if (aKind < 0.5) {
+        float y = 1.0 - aAlong * 2.0;
+        float ringRadius = sqrt(max(0.0, 1.0 - y * y));
+        float theta = aAlong * 2399.96;
+        modelPos = vec3(cos(theta) * ringRadius, y, sin(theta) * ringRadius) * uCoreRadius;
+        modelPos *= 1.0 + (hash11(aSeed * 91.7) - 0.5) * 0.012;
+        bright = 0.55 + hash11(aSeed * 13.1) * 0.6;
+      } else {
+        float orbitRadius = aRadius;
+        float rate = uOrbitRate / pow(max(orbitRadius, 0.2), 1.5);
+        float theta = aSeed * TAU + uTime * rate;
+        float lift = (hash11(aSeed * 37.9) - 0.5) * 2.0 * uRingThickness;
+        modelPos = vec3(cos(theta) * orbitRadius, lift, sin(theta) * orbitRadius);
+        float lane = hash11(floor(orbitRadius * 46.0));
+        bright = (0.35 + lane * 0.95) * (0.6 + hash11(aSeed * 5.3) * 0.7);
+      }
+
+      vec4 viewPos = modelViewMatrix * vec4(modelPos, 1.0);
+
+      vec3 modelCentre = modelViewMatrix[3].xyz;
+      vec3 fromCamera = viewPos.xyz;
+      float rayLength = max(length(fromCamera), 1e-5);
+      vec3 rayDir = fromCamera / rayLength;
+
+      float alongRay = dot(modelCentre, rayDir);
+      float offAxis = length(modelCentre - rayDir * alongRay);
+
+      bool occluded;
+      if (aKind < 0.5) {
+        occluded = dot(viewPos.xyz - modelCentre, rayDir) > 0.0;
+      } else {
+        float inside = uCoreRadius * uCoreRadius - offAxis * offAxis;
+        float nearHit = alongRay - sqrt(max(inside, 0.0));
+        occluded = inside > 0.0 && rayLength > nearHit;
+      }
+
+      if (occluded) {
+        gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
+        gl_PointSize = 0.0;
+        vKind = aKind;
+        vBright = 0.0;
+        return;
+      }
+
+      gl_Position = projectionMatrix * viewPos;
+      gl_PointSize = uMoteSize * uPixelRatio * (9.0 / max(0.001, -viewPos.z));
+      vKind = aKind;
+      vBright = bright;
+    }
+  `;
+
+  const SATURN_FRAGMENT = `
+    precision highp float;
+
+    uniform vec3 uCoreColor;
+    uniform vec3 uRingColor;
+    uniform float uGlow;
+
+    varying float vKind;
+    varying float vBright;
+
+    void main() {
+      float d = length(gl_PointCoord - 0.5) * 2.0;
+      if (d > 1.0) discard;
+
+      float fall = 1.0 - d;
+      float shape = pow(fall, 5.0) + pow(fall, 1.6) * 0.3;
+
+      vec3 col = vKind < 0.5 ? uCoreColor : uRingColor;
+      float a = shape * vBright * (0.35 + uGlow);
+
+      gl_FragColor = vec4(col * a, a);
+    }
+  `;
+
+  class SaturnScene {
+    constructor(container, cfg, opts = {}) {
+      this.container = container;
+      this.cfg = cfg;
+      this.reducedMotion = !!opts.reducedMotion;
+      const S = settingsFor(cfg);
+
+      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      this.renderer.setPixelRatio(dpr);
+      this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+      this.renderer.setClearColor(0x000000, 0);
+
+      const el = this.renderer.domElement;
+      el.style.position = "absolute";
+      el.style.inset = "0";
+      el.style.width = "100%";
+      el.style.height = "100%";
+      el.style.cursor = "grab";
+      el.style.touchAction = "none";
+      container.appendChild(el);
+
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.PerspectiveCamera(30, 1, 0.1, 2000);
+      this.group = new THREE.Group();
+
+      this.material = new THREE.ShaderMaterial({
+        vertexShader: SATURN_VERTEX,
+        fragmentShader: SATURN_FRAGMENT,
+        uniforms: {
+          uTime: { value: 0 },
+          uMoteSize: { value: S.moteSize },
+          uOrbitRate: { value: S.orbitRate },
+          uRingThickness: { value: S.ringThickness },
+          uCoreRadius: { value: CORE_RADIUS },
+          uPixelRatio: { value: dpr },
+          uCoreColor: { value: new THREE.Color(cfg.coreColor) },
+          uRingColor: { value: new THREE.Color(cfg.ringColor) },
+          uGlow: { value: S.glow },
+        },
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+        depthTest: false,
+      });
+
+      this.cloudGeometry = buildCloud(S);
+      this.cloud = new THREE.Points(this.cloudGeometry, this.material);
+      this.cloud.frustumCulled = false;
+      this.group.add(this.cloud);
+
+      this.group.rotation.order = "ZXY";
+      this.scene.add(this.group);
+
+      this.time = 0;
+      this.spinAngle = 0;
+      this.dragYaw = 0;
+      this.dragPitch = 0;
+      this.velocityYaw = 0;
+      this.velocityPitch = 0;
+      this.isDragging = false;
+      this.lastX = 0;
+      this.lastY = 0;
+      this.width = 0;
+      this.height = 0;
+      this.frameId = 0;
+      this.lastT = 0;
+      this.disposed = false;
+      this.paused = false;
+
+      this.unbind = () => {};
+      this.bindEvents();
+    }
+
+    bindEvents() {
+      const el = this.renderer.domElement;
+
+      const down = (e) => {
+        this.isDragging = true;
+        this.lastX = e.clientX;
+        this.lastY = e.clientY;
+        this.velocityYaw = 0;
+        this.velocityPitch = 0;
+        el.style.cursor = "grabbing";
+      };
+      const move = (e) => {
+        if (!this.isDragging) return;
+        const dx = e.clientX - this.lastX;
+        const dy = e.clientY - this.lastY;
+        this.lastX = e.clientX;
+        this.lastY = e.clientY;
+        const s = clamp(this.cfg.dragSensitivity, 0, 10, 3) * 0.007;
+        this.dragYaw += dx * s;
+        this.dragPitch += dy * s;
+        this.velocityYaw = dx * s;
+        this.velocityPitch = dy * s;
+      };
+      const up = () => {
+        this.isDragging = false;
+        el.style.cursor = "grab";
+      };
+
+      el.addEventListener("pointerdown", down);
+      window.addEventListener("pointermove", move);
+      window.addEventListener("pointerup", up);
+      window.addEventListener("pointercancel", up);
+
+      this.unbind = () => {
+        el.removeEventListener("pointerdown", down);
+        window.removeEventListener("pointermove", move);
+        window.removeEventListener("pointerup", up);
+        window.removeEventListener("pointercancel", up);
+      };
+    }
+
+    start() {
+      this.lastT = performance.now();
+      const loop = () => {
+        this.frameId = requestAnimationFrame(loop);
+        if (!this.paused) this.step();
+      };
+      loop();
+    }
+
+    setPaused(paused) {
+      this.paused = paused;
+      if (!paused) this.lastT = performance.now();
+    }
+
+    setSize(width, height) {
+      if (this.disposed || width <= 0 || height <= 0) return;
+      this.width = width;
+      this.height = height;
+      this.renderer.setSize(width, height, false);
+      this.updateCamera();
+    }
+
+    updateCamera() {
+      const w = Math.max(1, this.width);
+      const h = Math.max(1, this.height);
+      const aspect = w / h;
+      const distance = 1 / PERSPECTIVE;
+      const sizePct = clamp(this.cfg.sizePercent, 20, 200, 90);
+      const span = VIEW_SPAN * (100 / sizePct);
+      const visibleHeight = aspect < 1 ? span / aspect : span;
+
+      this.camera.aspect = aspect;
+      this.camera.position.set(0, 0, distance);
+      this.camera.lookAt(0, 0, 0);
+      this.camera.fov = 2 * Math.atan(visibleHeight / 2 / distance) * (180 / Math.PI);
+      this.camera.near = Math.max(0.1, distance - 20);
+      this.camera.far = distance + 20;
+      this.camera.updateProjectionMatrix();
+    }
+
+    step() {
+      if (this.disposed) return;
+      const now = performance.now();
+      let dt = (now - this.lastT) / 1000;
+      this.lastT = now;
+      if (!isFinite(dt) || dt < 0) dt = 0;
+      if (dt > 0.05) dt = 0.05;
+
+      const S = settingsFor(this.cfg);
+      this.time += dt;
+
+      if (!this.isDragging && !this.reducedMotion) {
+        const decay = Math.exp(-dt * 3);
+        this.dragYaw += this.velocityYaw;
+        this.dragPitch += this.velocityPitch;
+        this.velocityYaw *= decay;
+        this.velocityPitch *= decay;
+        this.spinAngle += S.spinRate * dt;
+      }
+
+      const pitch = Math.max(-1.2, Math.min(1.2, this.dragPitch));
+      this.group.rotation.set(S.tiltRadians + pitch, this.dragYaw + this.spinAngle, S.rollRadians);
+
+      this.material.uniforms.uTime.value = this.time;
+      this.renderer.render(this.scene, this.camera);
+    }
+
+    dispose() {
+      this.disposed = true;
+      cancelAnimationFrame(this.frameId);
+      this.unbind();
+      this.cloudGeometry.dispose();
+      this.material.dispose();
+      this.renderer.dispose();
+      const el = this.renderer.domElement;
+      if (el.parentNode === this.container) this.container.removeChild(el);
+    }
+  }
+
+  /**
+   * Mount a Particle Saturn into `container`. Returns a controller with
+   * dispose()/setPaused(). Returns null if WebGL isn't available so the
+   * caller can show a CSS fallback instead.
+   */
+  function mountParticleSaturn(container, overrides = {}, opts = {}) {
+    if (!container) return null;
+
+    const probe = document.createElement("canvas");
+    const hasWebGL = !!(probe.getContext("webgl2") || probe.getContext("webgl"));
+    if (!hasWebGL) return null;
+
+    const cfg = { ...SATURN_DEFAULTS, ...overrides, ringOptions: { ...SATURN_DEFAULTS.ringOptions, ...(overrides.ringOptions || {}) } };
+
+    let scene;
+    try {
+      scene = new SaturnScene(container, cfg, opts);
+    } catch (e) {
+      console.warn("Particle Saturn failed to initialize, falling back:", e);
+      return null;
+    }
+
+    scene.setSize(container.clientWidth, container.clientHeight);
+    scene.start();
+
+    const ro = new ResizeObserver(() => {
+      scene.setSize(container.clientWidth, container.clientHeight);
+    });
+    ro.observe(container);
+
+    const onVisibility = () => scene.setPaused(document.hidden);
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return {
+      dispose() {
+        ro.disconnect();
+        document.removeEventListener("visibilitychange", onVisibility);
+        scene.dispose();
+      },
+      setPaused(p) {
+        scene.setPaused(p);
+      },
+    };
+  }
+
+  initAmbientBackground(THREE);
+
+  if (heroSceneWrap) {
+    try {
+      const saturn = mountParticleSaturn(
+        heroSceneWrap,
+        {
+          coreColor: "#d7b27c",
+          ringColor: "#f1dfb6",
+          density: isMobile ? 7 : 11,
+          spinSpeed: prefersReducedMotion ? 0 : 3.2,
+        },
+        { reducedMotion: prefersReducedMotion }
+      );
+      if (!saturn && heroFallback) heroFallback.style.display = "block";
+    } catch (e) {
+      console.warn("Particle Saturn unavailable, using static fallback:", e);
+      if (heroFallback) heroFallback.style.display = "block";
+    }
+  }
+})();
+
+function initAmbientBackground(THREE) {
+  const canvas = document.getElementById("bg-canvas");
+  if (!canvas) return;
+  let bgPaused = false;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0, 12);
+
+  const accentColor = new THREE.Color(0xd7b27c);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+  const key = new THREE.PointLight(0xd7b27c, 12, 40);
+  key.position.set(6, 4, 8);
+  scene.add(key);
+  const rim = new THREE.PointLight(0x6f8bff, 6, 40);
+  rim.position.set(-8, -4, -4);
+  scene.add(rim);
+
+  const objectsGroup = new THREE.Group();
+  scene.add(objectsGroup);
+
+  function makeGlassMaterial(color, opacity) {
+    return new THREE.MeshPhysicalMaterial({
+      color, transparent: true, opacity,
+      roughness: 0.15, metalness: 0.1,
+      transmission: 0.55, thickness: 1.2,
+      clearcoat: 1, clearcoatRoughness: 0.2,
+      ior: 1.3,
+    });
+  }
+
+  const shapeDefs = [
+    { geo: new THREE.IcosahedronGeometry(1.6, 0), pos: [-3.6, 1.4, -2], wire: true },
+    { geo: new THREE.TorusGeometry(1.3, 0.32, 24, 90), pos: [3.8, -1.2, -3], wire: false },
+    { geo: new THREE.OctahedronGeometry(1.1, 0), pos: [2.6, 2.6, -5], wire: true },
+    { geo: new THREE.IcosahedronGeometry(0.85, 1), pos: [-3, -2.4, -4], wire: false },
+  ];
+
+  const meshes = [];
+  shapeDefs.forEach((def, i) => {
+    const mat = def.wire
+      ? new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? accentColor : 0x8f97ab, wireframe: true, transparent: true, opacity: 0.35 })
+      : makeGlassMaterial(i % 2 === 0 ? accentColor : 0xb9c2d8, 0.55);
+    const mesh = new THREE.Mesh(def.geo, mat);
+    mesh.position.set(...def.pos);
+    mesh.userData.speed = 0.06 + Math.random() * 0.08;
+    mesh.userData.floatOffset = Math.random() * Math.PI * 2;
+    mesh.userData.baseY = def.pos[1];
+    objectsGroup.add(mesh);
+    meshes.push(mesh);
+  });
+
+  const particleCount = isMobile ? 220 : 600;
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 26;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 16;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 20 - 4;
+  }
+  const particleGeo = new THREE.BufferGeometry();
+  particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  const particleMat = new THREE.PointsMaterial({ color: 0xd7b27c, size: 0.035, transparent: true, opacity: 0.5, sizeAttenuation: true });
+  const particles = new THREE.Points(particleGeo, particleMat);
+  scene.add(particles);
+
+  let targetRotX = 0, targetRotY = 0, curRotX = 0, curRotY = 0;
+  window.addEventListener("mousemove", (e) => {
+    if (prefersReducedMotion) return;
+    const nx = e.clientX / window.innerWidth - 0.5;
+    const ny = e.clientY / window.innerHeight - 0.5;
+    targetRotY = nx * 0.5;
+    targetRotX = ny * 0.35;
+  });
+
+  let scrollFrac = 0;
+  function updateScroll() {
+    const max = document.body.scrollHeight - window.innerHeight;
+    scrollFrac = max > 0 ? window.scrollY / max : 0;
+  }
+  window.addEventListener("scroll", updateScroll, { passive: true });
+  updateScroll();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    bgPaused = document.hidden;
+  });
+
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    if (bgPaused) return;
+    const t = clock.getElapsedTime();
+
+    if (!prefersReducedMotion) {
+      curRotX += (targetRotX - curRotX) * 0.04;
+      curRotY += (targetRotY - curRotY) * 0.04;
+      objectsGroup.rotation.x = curRotX * 0.6;
+      objectsGroup.rotation.y = curRotY * 0.6 + t * 0.02;
+
+      meshes.forEach((m) => {
+        m.rotation.x += m.userData.speed * 0.01;
+        m.rotation.y += m.userData.speed * 0.015;
+        m.position.y = m.userData.baseY + Math.sin(t * 0.4 + m.userData.floatOffset) * 0.25;
+      });
+
+      particles.rotation.y = t * 0.008;
+      camera.position.z = 12 - scrollFrac * 3;
+      camera.position.y = -scrollFrac * 1.5;
+    }
+
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
 </script>
 </body>
 </html>
